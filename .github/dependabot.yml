@@ -1,6 +1,7 @@
 version: 2
 updates:
-  - package-ecosystem: "npm"
+  # GitHub Actions used by the CI workflow (actions/checkout, setup-node, setup-python)
+  - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "monthly"
@@ -8,4 +9,15 @@ updates:
     labels:
       - "dependencies"
     commit-message:
-      prefix: "deps(npm)"
+      prefix: "deps(actions)"
+
+  # Python dependency pinned in the vault template
+  - package-ecosystem: "pip"
+    directory: "/vault-template/99-Operations"
+    schedule:
+      interval: "monthly"
+    open-pull-requests-limit: 3
+    labels:
+      - "dependencies"
+    commit-message:
+      prefix: "deps(pip)"
