@@ -178,21 +178,22 @@ cd ~/Documents/my-vault
 # 4. Bootstrap
 git init
 git config core.hooksPath 99-Operations/hooks
-pip install -r 99-Operations/requirements.txt
+python3 -m venv .venv                                # vault-local python (PEP 668)
+.venv/bin/pip install -r 99-Operations/requirements.txt
+. 99-Operations/config.env                           # VAULT_ROOT + vocab + .venv on PATH
 
 # Bootstrap render, then deploy all scripts
 python3 - << 'EOF'
 import re, pathlib, frontmatter, os
 note = pathlib.Path("99-Operations/scripts/render-reconcile.md")
-post = frontmatter.load(note)
-m = re.search(r"^```python\n(.*?)^```", post.content, re.S | re.M)
+m = re.search(r"^```python\n(.*?)^```", frontmatter.load(note).content, re.S | re.M)
 target = pathlib.Path(os.path.expanduser("~/bin/vault-render.py"))
 target.parent.mkdir(parents=True, exist_ok=True)
 target.write_text(m.group(1)); target.chmod(0o755)
 EOF
 
-VAULT_ROOT="$(pwd)" python3 ~/bin/vault-render.py render
-VAULT_ROOT="$(pwd)" python3 ~/bin/vault_naming.py   # emit naming-rules.json
+python3 ~/bin/vault-render.py render
+python3 ~/bin/vault_naming.py                        # emit naming-rules.json
 
 # 5. Initial commit
 git add -A

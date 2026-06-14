@@ -14,6 +14,27 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
+## [0.1.1] - 2026-06-15
+
+Adopter-friction fixes found by performing a real install of the template into a
+live Obsidian vault.
+
+### Added
+- `vault-template/.gitignore` — a forked vault now ignores `.venv/`, `__pycache__`,
+  the generated `10-Claims/_refine-queue.json`, and Obsidian per-machine UI state
+  (`.obsidian/workspace*`, `.obsidian/cache`) out of the box. The template previously
+  shipped without a vault-level `.gitignore`.
+
+### Changed
+- Setup now installs `python-frontmatter` into a **vault-local venv** at
+  `$VAULT_ROOT/.venv` rather than the system Python, which modern distros block under
+  PEP 668. `config.env` (and `config.env.example`) prepend `$VAULT_ROOT/.venv/bin` to
+  `PATH`, so `source 99-Operations/config.env` activates the right interpreter for both
+  manual ops and cron. Updated `README.md`, `docs/USING-THIS-TEMPLATE.md`, and
+  `vault-template/00-Docs/README.md` accordingly.
+
+---
+
 ## [0.1.0] - 2026-06-15
 
 First validated release. The deterministic engine (Phases 0–2) is proven against
@@ -57,4 +78,5 @@ the full PRD acceptance suite; Phase 3 (agent operations) remains spec-only/defe
   naming validator, and commit-gate hook all behave per spec.
 - The documented onboarding was dogfooded literally end-to-end on a fresh vault.
 
+[0.1.1]: https://github.com/keith-nielsen/memory-mining/releases/tag/v0.1.1
 [0.1.0]: https://github.com/keith-nielsen/memory-mining/releases/tag/v0.1.0

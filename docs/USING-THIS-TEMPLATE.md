@@ -17,7 +17,7 @@ mining.
 | [Obsidian](https://obsidian.md) | Local-first Markdown editor; free for personal use |
 | Python 3.12+ | For all operational scripts |
 | Git | Version control; the vault is a repository |
-| `python-frontmatter` | `pip install python-frontmatter` (or via `requirements.txt`) |
+| `python-frontmatter` | Installed into a vault-local venv (see Step 3) — modern distros block `pip install` into the system Python under PEP 668 |
 
 Optional for Phase 3 (agent operations, deferred):
 - [Hermes Agent v0.15.2](https://github.com/Nous-Research/hermes) — Kanban worker runtime
@@ -76,33 +76,38 @@ each of your pillar MOCs.
 
 ## Step 3: Bootstrap Scripts
 
-Install the Python dependency and deploy the operational scripts to the host:
+Create a vault-local virtual environment for the one Python dependency, then deploy
+the operational scripts to the host. The venv keeps you off the system Python (which
+modern distros lock down under PEP 668); `config.env` already adds `.venv/bin` to your
+PATH, so sourcing it activates the right interpreter.
 
 ```bash
 cd ~/Documents/my-vault
-pip install -r 99-Operations/requirements.txt
 
-# Bootstrap render from source (one-time)
+# 1. vault-local venv with the one dependency
+python3 -m venv .venv
+.venv/bin/pip install -r 99-Operations/requirements.txt
+
+# 2. source config — sets VAULT_ROOT + vocab and puts .venv/bin on PATH
+#    (make sure VAULT_ROOT in 99-Operations/config.env is this vault's absolute path)
+. 99-Operations/config.env
+
+# 3. bootstrap render from source (one-time; a meta-script note is Markdown,
+#    so extract its code block rather than running the .md)
 python3 - << 'EOF'
 import re, pathlib, frontmatter, os
 note = pathlib.Path("99-Operations/scripts/render-reconcile.md")
-post = frontmatter.load(note)
-m = re.search(r"^```python\n(.*?)^```", post.content, re.S | re.M)
+m = re.search(r"^```python\n(.*?)^```", frontmatter.load(note).content, re.S | re.M)
 target = pathlib.Path(os.path.expanduser("~/bin/vault-render.py"))
 target.parent.mkdir(parents=True, exist_ok=True)
-target.write_text(m.group(1))
-target.chmod(0o755)
+target.write_text(m.group(1)); target.chmod(0o755)
 print(f"bootstrapped -> {target}")
 EOF
 
-# Deploy all scripts
-VAULT_ROOT="$(pwd)" python3 ~/bin/vault-render.py render
-
-# Emit naming-rules.json
-VAULT_ROOT="$(pwd)" python3 ~/bin/vault_naming.py
-
-# Verify zero drift
-VAULT_ROOT="$(pwd)" python3 ~/bin/vault-render.py reconcile
+# 4. deploy all scripts, emit naming-rules.json, verify zero drift
+python3 ~/bin/vault-render.py render
+python3 ~/bin/vault_naming.py
+python3 ~/bin/vault-render.py reconcile
 ```
 
 ---

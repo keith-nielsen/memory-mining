@@ -1,0 +1,16 @@
+# Vault .gitignore — ships with the template; governs YOUR vault repo.
+
+# Vault-local Python environment (see config.env / USING-THIS-TEMPLATE.md)
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Generated refine queue (rewritten by vault-refine-detect.py)
+10-Claims/_refine-queue.json
+
+# Obsidian per-machine UI state (keep the rest of .obsidian tracked)
+.obsidian/workspace*
+.obsidian/cache
+
+.DS_Store

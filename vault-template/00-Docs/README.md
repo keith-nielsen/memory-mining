@@ -82,13 +82,16 @@ The Home MOC (`home-moc.md`) links to each pillar's front door.
 
 ### 2. Bootstrap the scripts
 
-Install dependencies and render the operational scripts to the host. First make sure
-`VAULT_ROOT` in `99-Operations/config.env` is your vault's absolute path, then:
+Install the dependency into a vault-local venv (modern distros block `pip install`
+into the system Python under PEP 668) and render the operational scripts to the host.
+First make sure `VAULT_ROOT` in `99-Operations/config.env` is your vault's absolute
+path, then:
 
 ```bash
 cd <vault-root>
-pip install -r 99-Operations/requirements.txt
-. 99-Operations/config.env                         # export VAULT_ROOT + vocab vars
+python3 -m venv .venv                              # vault-local python
+.venv/bin/pip install -r 99-Operations/requirements.txt
+. 99-Operations/config.env                         # VAULT_ROOT + vocab + .venv on PATH
 
 # Bootstrap the render script by extracting its code block
 # (a meta-script note is Markdown — you can't run the .md directly)
