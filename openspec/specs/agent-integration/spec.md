@@ -5,15 +5,17 @@ protects: [INV-4, INV-5, INV-8, INV-11]
 <!-- SPDX-License-Identifier: Apache-2.0 -->
 # Spec: agent-integration
 
-The Phase 3 agent-assisted refine harness: the proposal contract, the dry-run
-scaffolding, and the Hermes Agent runtime mapping. **Build is spec-only in Phase 3;
-live wiring is deferred (§14.1).**
+## Purpose
 
----
+Define the Phase 3 agent-assisted refine harness: the proposal contract, the dry-run
+scaffolding, and the Hermes Agent runtime mapping. Build is spec-only in Phase 3;
+live wiring is deferred (§14.1).
 
-## Requirement: Phase 3 Harness — Spec-Only Scaffolding
+## Requirements
 
-The Phase 3 harness is built as **disabled-by-default scaffolding**:
+### Requirement: Phase 3 Harness — Spec-Only Scaffolding
+
+The Phase 3 harness SHALL be built as disabled-by-default scaffolding:
 
 - Default mode: `--dry-run` — writes a fixture proposal to `_refine-proposals/`,
   makes no network or model call
@@ -39,10 +41,10 @@ boundary check (INV-11, dual enforcement).
 
 ---
 
-## Requirement: Refine Proposal JSON Schema
+### Requirement: Refine Proposal JSON Schema
 
-The agent output contract. All proposals — from the live harness, dry-run, or any
-future model — must conform to this schema:
+All proposals — from the live harness, dry-run, or any future model — MUST conform to
+this agent output contract schema:
 
 ```json
 {
@@ -72,10 +74,10 @@ Agent rules (from the prompt contract in `99-Operations/schemas/refine-prompt.md
 
 ---
 
-## Requirement: Hermes Agent Runtime Mapping (Deferred)
+### Requirement: Hermes Agent Runtime Mapping (Deferred)
 
-When Phase 3 is activated (live wiring deferred), the harness runs as a
-**Hermes Kanban worker** with the following fixed mapping:
+When Phase 3 is activated (live wiring deferred), the harness SHALL run as a
+Hermes Kanban worker with the following fixed mapping:
 
 | Parameter | Value | Rationale |
 |---|---|---|
@@ -95,3 +97,8 @@ Operational constraints for activation (not build items — Hermes config):
 - Cap `kanban.max_in_progress` to avoid flooding local LLM
 - Single-host boards — the two workstations run separate boards
 - Run `hermes dashboard` on localhost only (never `--host 0.0.0.0`)
+
+#### Scenario: Worker deposit does not write Treasury
+- **WHEN** a Hermes refine worker completes a card
+- **THEN** it calls `kanban_complete()` after depositing a proposal in `_refine-proposals/`
+- **THEN** it writes nothing to `40-Treasury/` or `99-Operations/`; the commit-gate hook backstops the boundary on the worker's commit

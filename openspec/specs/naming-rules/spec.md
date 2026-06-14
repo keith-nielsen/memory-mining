@@ -5,14 +5,17 @@ protects: [INV-11]
 <!-- SPDX-License-Identifier: Apache-2.0 -->
 # Spec: naming-rules
 
-The vault naming ruleset (INV-11): what constitutes a valid path component, what
-constitutes a valid kebab-case slug, and how conformance is enforced at the boundary.
+## Purpose
 
----
+Define the vault naming ruleset (INV-11): what constitutes a valid path component,
+what constitutes a valid kebab-case slug, and how conformance is enforced at the
+boundary.
 
-## Requirement: Cross-Platform Name Safety
+## Requirements
 
-Every vault path component (folder name, file stem — not extension) must satisfy
+### Requirement: Cross-Platform Name Safety
+
+Every vault path component (folder name, file stem — not extension) MUST satisfy
 the base safety rules. A violation is rejected at the commit-gate hook; existing
 names are grandfathered.
 
@@ -40,11 +43,11 @@ Rules (authoritative set, mirrored to `naming-rules.json`):
 
 ---
 
-## Requirement: Kebab-Case Slug (Machine-Generated Names)
+### Requirement: Kebab-Case Slug (Machine-Generated Names)
 
-Machine-generated names — effort folder slugs in `30-Sites/` and `70-Tailings/`,
-and Treasury note file stems in `40-Treasury/` — must additionally be valid
-kebab-case slugs:
+Machine-generated names MUST additionally be valid kebab-case slugs — this applies to
+effort folder slugs in `30-Sites/` and `70-Tailings/`, and Treasury note file stems
+in `40-Treasury/`:
 
 Pattern: `^[a-z0-9]+(?:-[a-z0-9]+)*$`
 
@@ -58,9 +61,9 @@ Pattern: `^[a-z0-9]+(?:-[a-z0-9]+)*$`
 
 ---
 
-## Requirement: Enforcement at the Boundary (INV-11)
+### Requirement: Enforcement at the Boundary (INV-11)
 
-Name conformance is enforced **deterministically at the boundary**, not by trusting
+Name conformance MUST be enforced deterministically at the boundary, not by trusting
 producers to comply:
 
 1. **Refine executor** (`vault-refine-execute.py`): validates `target_note` stem with
@@ -89,9 +92,9 @@ into `_refine-approved/`, bypassing the harness.
 
 ---
 
-## Requirement: Language-Neutral Mirror
+### Requirement: Language-Neutral Mirror
 
-The `vault_naming.py` module, when run with no arguments, writes
+The `vault_naming.py` module, when run with no arguments, MUST write
 `99-Operations/schemas/naming-rules.json` — a language-neutral mirror of the
 `RULES` dict for non-Python consumers (future JS/Obsidian plugin, n8n node).
 

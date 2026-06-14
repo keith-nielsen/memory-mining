@@ -5,14 +5,17 @@ protects: [INV-2, INV-3, INV-6]
 <!-- SPDX-License-Identifier: Apache-2.0 -->
 # Spec: maintenance
 
-The Layer-0 operational machinery: the literate meta-script format, the render/reconcile
-GitOps pattern, and all deterministic scripts that automate vault maintenance.
+## Purpose
 
----
+Define the Layer-0 operational machinery: the literate meta-script format, the
+render/reconcile GitOps pattern, and all deterministic scripts that automate vault
+maintenance.
 
-## Requirement: Literate Meta-Script Format
+## Requirements
 
-Every operational artifact is stored as a **literate meta-script note** in
+### Requirement: Literate Meta-Script Format
+
+Every operational artifact SHALL be stored as a literate meta-script note in
 `99-Operations/scripts/`: a Markdown file with YAML frontmatter describing where
 it deploys and when it runs, plus a `## Rationale` section and a single fenced
 code block (the artifact). Layer 0 is the source of truth (INV-3); the code block
@@ -43,18 +46,21 @@ updated: YYYY-MM-DD
 
 ---
 
-## Requirement: Deterministic Scripts Are Offline (INV-6)
+### Requirement: Deterministic Scripts Are Offline (INV-6)
 
-All `[script]` operations make no network calls and no LLM calls. They are
+All `[script]` operations MUST make no network calls and no LLM calls. They are
 model-agnostic and will produce the same output given the same inputs regardless
 of what AI tools are installed. This is a hard invariant; scripts that would
 require network access are `[agent]` operations, not scripts.
 
----
+#### Scenario: A deterministic script makes no network or LLM call
+- **WHEN** any `[script]` operation runs
+- **THEN** it completes using only local filesystem and Git operations
+- **THEN** it issues no network request and invokes no model
 
-## Requirement: One Mutation, One Commit (INV-2)
+### Requirement: One Mutation, One Commit (INV-2)
 
-Every automated mutation ends in exactly one Git commit with a structured message.
+Every automated mutation SHALL end in exactly one Git commit with a structured message.
 No script produces zero commits (silent no-op on unchanged state is acceptable;
 producing zero commits when a mutation occurred is not) or multiple commits.
 
@@ -70,9 +76,9 @@ Commit message format: `<verb>: <subject>` (e.g., `rollover: 2 open dig(s) → 2
 
 ---
 
-## Requirement: Script Inventory
+### Requirement: Script Inventory
 
-The following scripts are implemented as literate meta-script notes in Phase 1–2.
+The following scripts SHALL be implemented as literate meta-script notes in Phase 1–2.
 Each is offline and deterministic (INV-6).
 
 | Script note | Deploy target | Runtime | Purpose |

@@ -100,7 +100,7 @@ jobs:
           python3 - << 'EOF'
           import pathlib, sys, re
           config = pathlib.Path("vault-template/99-Operations/config.env").read_text()
-          m = re.search(r'^GRADES="([^"]+)"', config, re.M)
+          m = re.search(r'^export GRADES="([^"]+)"', config, re.M)
           if not m:
             print("MISSING GRADES in config.env", file=sys.stderr); sys.exit(1)
           grades = set(m.group(1).split())

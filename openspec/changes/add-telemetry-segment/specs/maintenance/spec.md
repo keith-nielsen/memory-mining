@@ -2,7 +2,7 @@
 ## ADDED Requirements
 
 ### Requirement: File-Integrity Monitoring (FIM) on Protected Areas
-osquery scheduled queries monitor writes to `40-Treasury/` and `99-Operations/`
+osquery scheduled queries SHALL monitor writes to `40-Treasury/` and `99-Operations/`
 by processes other than those in the approved script set.
 
 #### Scenario: Unexpected Treasury write is logged
@@ -12,7 +12,7 @@ by processes other than those in the approved script set.
 - **THEN** no automatic enforcement occurs (detect only; operator reviews)
 
 ### Requirement: Egress Monitoring for Vault Processes
-osquery monitors network connections opened by `vault_*.py` and `hermes` processes.
+osquery SHALL monitor network connections opened by `vault_*.py` and `hermes` processes.
 Connections to anything other than `localhost` are flagged (vault scripts are offline,
 INV-6; any outbound connection is anomalous).
 

@@ -5,14 +5,17 @@ protects: [CONST-02, CONST-04, CONST-05, INV-1, INV-12]
 <!-- SPDX-License-Identifier: Apache-2.0 -->
 # Spec: vault-structure
 
-The physical and conceptual structure of the vault: folder layout, layer model,
-frontmatter schemas, and note templates.
+## Purpose
 
----
+Define the physical and conceptual structure of the vault: the folder layout, the
+three-layer model, frontmatter schemas, and note templates. This spec is the
+authority for where things live and what shape they take on disk.
 
-## Requirement: Three-Layer Model
+## Requirements
 
-The vault is organized into three named layers with distinct stability and access profiles.
+### Requirement: Three-Layer Model
+
+The vault SHALL be organized into three named layers with distinct stability and access profiles.
 
 - **Layer 0 — Operations** (`99-Operations/`): the mine's machinery. Human-write-only.
 - **Layer 1 — Treasury** (`40-Treasury/`): refined + polished bullion. Never discarded by automation.
@@ -32,9 +35,9 @@ validation, deferred), `97-Molds/` + `98-Warehouse/` (infrastructure).
 
 ---
 
-## Requirement: Folder Structure
+### Requirement: Folder Structure
 
-The vault root contains exactly these numbered top-level folders, ordered by touch
+The vault root SHALL contain exactly these numbered top-level folders, ordered by touch
 frequency (ascending number = higher daily-touch frequency), zero-padded for
 correct lexicographic sort, gapped by 10s for insertion headroom.
 
@@ -83,9 +86,9 @@ Reserved number bands (folders NOT created until needed): 81–89 (Crucible-adja
 
 ---
 
-## Requirement: Format Invariant
+### Requirement: Format Invariant
 
-All content files are Markdown (`.md`) with YAML frontmatter, UTF-8 encoded (INV-1).
+All content files SHALL be Markdown (`.md`) with YAML frontmatter, UTF-8 encoded (INV-1).
 No proprietary formats. No binary content files outside `98-Warehouse/`.
 
 #### Scenario: Mold templates are valid frontmatter Markdown
@@ -94,9 +97,9 @@ No proprietary formats. No binary content files outside `98-Warehouse/`.
 
 ---
 
-## Requirement: Frontmatter Schemas
+### Requirement: Frontmatter Schemas
 
-Each note type has an exact required frontmatter schema. The schemas are documented
+Each note type SHALL have an exact required frontmatter schema. The schemas are documented
 in `vault-template/99-Operations/schemas/frontmatter.md` and enforced by the linter.
 
 | Type | Location | Key fields |
@@ -114,10 +117,10 @@ in `vault-template/99-Operations/schemas/frontmatter.md` and enforced by the lin
 
 ---
 
-## Requirement: Pillar Configuration
+### Requirement: Pillar Configuration
 
-Pillars are the major, durable life-domains the vault is organized around. The
-canonical set is defined in `99-Operations/config.env` as the `PILLARS` variable.
+The canonical set of pillars SHALL be defined in `99-Operations/config.env` as the
+`PILLARS` variable. Pillars are the major, durable life-domains the vault is organized around.
 The default set (`mental health financial social technology calling`) is an example;
 every adopter is expected to replace it with their own durable life-domains.
 

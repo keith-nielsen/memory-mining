@@ -5,15 +5,18 @@ protects: [CONST-01, CONST-03, INV-9, INV-10]
 <!-- SPDX-License-Identifier: Apache-2.0 -->
 # Spec: value-pipeline
 
-The Value Mining extraction pipeline: stage definitions, grade gate logic, the
-Sort triage, and the Tailings/Spoil disposal model.
+## Purpose
 
----
+Define the Value Mining extraction pipeline: stage definitions, grade-gate logic,
+the Sort triage, and the Tailings/Spoil disposal model. This spec is the authority
+for how material moves from raw capture to refined bullion.
 
-## Requirement: Pipeline Stages
+## Requirements
 
-Every piece of content has a position on the value chain. Stage names predict the
-next stage and the material's current value-state (CONST-01).
+### Requirement: Pipeline Stages
+
+Every piece of content SHALL have a defined position on the value chain. Stage names
+predict the next stage and the material's current value-state (CONST-01).
 
 | Stage | Location | Object | Key field | Meaning |
 |---|---|---|---|---|
@@ -38,9 +41,9 @@ next stage and the material's current value-state (CONST-01).
 
 ---
 
-## Requirement: Grade System
+### Requirement: Grade System
 
-Grade measures **value only** — never effort. Grade and status are orthogonal (CONST-03).
+Grade SHALL measure value only — never effort. Grade and status are orthogonal (CONST-03).
 
 | Grade | Meaning | Auto-refine? |
 |---|---|---|
@@ -64,9 +67,9 @@ to Tailings rather than completing the refine.
 
 ---
 
-## Requirement: Sort Triage
+### Requirement: Sort Triage
 
-Sort is a 3-way decision point at `ore`, after grade estimation:
+Sort SHALL be applied as a decision point at `ore`, after grade estimation, routing material one of four ways:
 
 1. **Routine refine** — grade ∈ {silver, gold}: auto-queue for the refine pipeline.
 2. **Crucible** — rare, by exception: ambiguous or ultravaluable ore sent to the
@@ -81,9 +84,9 @@ Sort is a 3-way decision point at `ore`, after grade estimation:
 
 ---
 
-## Requirement: Tailings Retention (INV-10)
+### Requirement: Tailings Retention (INV-10)
 
-Slagged efforts in `70-Tailings/` are **never auto-purged**. They retain their
+Slagged efforts in `70-Tailings/` MUST NOT be auto-purged. They retain their
 full Dig metadata (grade estimate, `slag_reason`) for re-prospecting when extraction
 economics shift (a cheaper model, a new tool, a capability jump).
 
@@ -98,9 +101,9 @@ human-gated move.
 
 ---
 
-## Requirement: Value Preservation (INV-9)
+### Requirement: Value Preservation (INV-9)
 
-Bullion in `40-Treasury/` is never moved to `71-Spoil/` or deleted by automation.
+Bullion in `40-Treasury/` MUST NOT be moved to `71-Spoil/` or deleted by automation.
 Only effort husks (the residue of a completed refine in `30-Sites/`) are disposed
 to `71-Spoil/`. Waste (proven-false content) is the only material discarded.
 
