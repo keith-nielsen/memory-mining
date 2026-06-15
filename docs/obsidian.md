@@ -113,12 +113,20 @@ All are **gate-safe** — none bypass the human approval step, and the commit-ga
 
 ## Roadmap / deferred ideas
 
-- **Claim inbox as a punch-list table with a one-click "promote to Site" button.**
-  Picture `20-Claims/` rendered (Dataview) as a table, each row with a button that
-  promotes the claim to a `30-Sites/<slug>/_effort.md` and cleans up behind itself.
-  Building blocks: a deterministic `vault-promote.sh` (the CLI backbone — create dir,
-  instantiate the effort mold, migrate the body, remove the claim, one commit) fronted
-  by an Obsidian Buttons/Shell-Commands UI. Until then, see
+- **"Start a Dig" — a one-click Claim→Site flow.** Picture `20-Claims/` rendered
+  (Dataview) as a punch-list table, each row a *nugget to chew*, with a button that
+  lifts the nugget out of the inbox and into a Site to begin digging. The deterministic
+  backbone is a `vault-promote.sh` that:
+  1. creates `30-Sites/<slug>/_effort.md` from the `effort` mold;
+  2. moves the Claim body in as the seed of the **Dig** section;
+  3. **prefills the frontmatter dates** — `started:` = today; the original capture date
+     is recovered from, in order: the Claim's `captured:` frontmatter → its **git
+     first-add date** (`git log --diff-filter=A --format=%ad -- <claim>`) → filesystem
+     ctime. This is what lets Claims stay *raw and date-less*: git already records when
+     the nugget landed, so the promote flow reads it back out (no manual dating needed);
+  4. carries over `pillars:` if present;
+  5. removes the Claim (single source of truth) — one commit, commit-gate validates the name.
+  An Obsidian Buttons/Shell-Commands UI fronts it. Until then, see
   [Promoting a Claim to a Site](method.md#promoting-a-claim-to-a-site) for the manual
   procedure.
 - **Stray-fragment lint** — flag root-level notes, claims carrying an effort `status`
