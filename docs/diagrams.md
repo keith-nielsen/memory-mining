@@ -1,7 +1,7 @@
 ---
 title: "Value Mining — System Diagrams"
 version: "1.1"
-source: "source/vault-diagrams-draft.md"
+source: "vault-diagrams-draft.md"
 ---
 
 # Value Mining — System Diagrams

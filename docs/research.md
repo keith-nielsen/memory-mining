@@ -1,13 +1,13 @@
 ---
 title: "Agentic AI Workflows — Background Research (2026)"
-source: "source/agentic-ai-workflows-report.md"
+source: "agentic-ai-workflows-report.md"
 date: "2026-06"
 ---
 
 # Agentic AI Workflows — Background Research (2026)
 
 This document summarises the research that informed the architectural choices in
-this system. The full report is in `source/agentic-ai-workflows-report.md`.
+this system. The full report is archived in the private `value-memory-mining-provenance` repo.
 
 ---
 
