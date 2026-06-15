@@ -1,7 +1,7 @@
 # Vault conventions — Value Mining (read before any operation)
 
 This vault is a Value Mining operation governed by 99-Operations/ and the build PRD.
-Content flows: Capture (20-Claims) -> Prospect -> Dig -> Ore -> Sort -> Refine ->
+Content flows: Capture (20-Claims) -> Dig -> Ore -> Sort -> Refine ->
   bullion deposited in 40-Treasury -> Polish (perpetual).
 Side paths: Slagged (70-Tailings, retained, re-minable) and Spoil (71-Spoil, terminal:
   spent husks + waste).

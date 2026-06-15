@@ -27,10 +27,15 @@ Spec files and vault artifacts that embody a principle are tagged with
 ### CONST-01 — The Value Mining Metaphor
 `tier: 1` · `adr: ADR-0002`
 
-**Principle:** The pipeline uses mining vocabulary throughout: Claim → Prospect →
-Dig → Ore → Sort → Refine → Treasury → Polish. Side paths: Slagged→Tailings
-(retained, re-minable), Spoil (terminal). Downstream: Mint/Forge. Every stage
-name lets you infer the next stage and the material's value-state.
+**Principle:** The pipeline uses mining vocabulary throughout: Claim → Dig → Ore →
+Sort → Refine → Bank → Treasury → Polish. Transition verbs: **dig** (Claim→Site),
+**slag** (Site→Tailings), **dump** (Site→Spoil), **redig** (Tailings→Site), **refine**
+(ore→bullion), **bank** (the human gate that authorizes bullion into the Treasury).
+**Prospect** is the upstream human act that discovers Claims from the world (it produces
+the inbox; it is not a Site state); **reprospect** is the bounded survey that re-evaluates
+Tailings. Side paths: Slagged→Tailings (retained, re-minable), Spoil (terminal).
+Downstream: Mint/Forge. Every stage name lets you infer the next stage and the
+material's value-state.
 
 **Rationale:** One coherent extraction-of-value frame where a stage's name predicts
 the next stage and the material's current state. Inference replaces memorization;

@@ -39,7 +39,7 @@ a defined pipeline; only high-grade material reaches the Treasury.
 
 ```
 Capture (20-Claims)
-  └─► Prospect ──► Dig ──► Ore ──► Sort ──► Refine ──► 40-Treasury ──► Polish
+  └─► Dig ──► Ore ──► Sort ──► Refine ──► 40-Treasury ──► Polish
                                       │
                               ┌───────┴───────────┐
                          Crucible (rare)    Tailings (slag, retain)
@@ -50,7 +50,6 @@ Capture (20-Claims)
 | Stage | What you do |
 |-------|-------------|
 | **Claim** | Drop raw captures into `20-Claims/` without evaluation |
-| **Prospect** | First investigation — is this worth digging? |
 | **Dig** | Active extraction — research, notes, experiments |
 | **Ore** | Digging produced something; estimate the grade |
 | **Sort** | 3-way triage: Refine / Crucible / Tailings / Spoil |
@@ -222,7 +221,7 @@ All scripts are stored as literate meta-script notes in
 | `vault-orphans.py` | `[script]` | manual | Find Treasury notes not linked from any MOC |
 | `vault-refine-detect.py` | `[script]` | `0 6 * * *` | Queue ore that has cleared the grade gate |
 | `vault-refine-execute.py` | `[script]` | manual | Apply approved proposals to Treasury |
-| `vault-dispose.sh` | `[script]` | manual | Move spent husk to Spoil |
+| `vault-dump.sh` | `[script]` | manual | Move spent husk to Spoil |
 | `vault-slag.sh` | `[script]` | manual | Move uneconomic effort to Tailings |
 | `vault-reprospect.py` | `[script]` | manual | List slagged efforts for re-evaluation |
 | `vault-rollover.py` | `[script]` | `2 0 * * *` | Append carry-over links to daily note |

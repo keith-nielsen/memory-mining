@@ -18,7 +18,7 @@ delete it — nothing in the pipeline depends on it.
 
 ```
 Capture (20-Claims)
-  └─► Prospect ──► Dig ──► Ore ──► Sort ──► Refine ──► 40-Treasury ──► Polish
+  └─► Dig ──► Ore ──► Sort ──► Refine ──► 40-Treasury ──► Polish
                                       │
                               ┌───────┴───────────┐
                          Crucible (rare)     Tailings (slag, retain)
@@ -29,7 +29,6 @@ Capture (20-Claims)
 | Stage | What happens |
 |-------|-------------|
 | **Claim** | Raw capture — idea, link, quote, observation. Drop it in `20-Claims/`. |
-| **Prospect** | First investigation. Is this worth digging? Create an effort in `30-Sites/`. |
 | **Dig** | Active extraction — research, notes, experiments. Work in your Site folder. |
 | **Ore** | Digging has produced something. Estimate a grade (`coal/bronze/silver/gold`). |
 | **Sort** | 3-way triage: high-grade → Refine; ambiguous/ultra-valuable → Crucible; uneconomic → Tailings; proven false → Spoil. |
@@ -48,7 +47,7 @@ vault-root/
 ├── 00-Docs/         ← you are here (deletable)
 ├── 10-Logbook/      ← daily notes + kanban projection
 ├── 20-Claims/       ← raw captures + refine pipeline queue/approved
-├── 30-Sites/        ← active workings (prospect → dig → ore)
+├── 30-Sites/        ← active workings (dig → ore)
 ├── 40-Treasury/     ← refined bullion + Catalog MOCs (Layer 1)
 ├── 50-Mint/         ← future: dated editions (deferred)
 ├── 60-Forge/        ← future: bespoke wares (deferred)

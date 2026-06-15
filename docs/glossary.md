@@ -18,11 +18,13 @@ investigation. Lives in `20-Claims/`.
 **Site** — an active working where extraction happens; one per effort. Lives in
 `30-Sites/<slug>/`.
 
-**Prospect** — the first investigation of a Claim; validate whether it's worth
-digging. (Effort lifecycle stage.)
+**Prospect** — the upstream, human act of going into the world and discovering value
+worth a Claim. It *produces* the inbox; it is **not** a Site state and has no script (the
+search space is unbounded — human agency only). Surfaces as a Daily intention; skippable
+when the Claims backlog is deep.
 
-**Dig** — actively extract raw material from a prospected candidate. (Effort lifecycle
-stage.)
+**Dig** — the move that lifts a Claim into a Site and begins active extraction
+(`status: dig`). A Site is born here, already committed to work. (Verb: `dig`.)
 
 **Ore** — the raw extracted material: digging has produced something, and its grade
 has been *estimated* (assay). This is the Sort/refine-gate decision point. (Effort
@@ -66,9 +68,37 @@ a new tool, a capability jump). Lives in `70-Tailings/`.
 Treasury; the residue of a successful refine) and *waste* (proven false or empty — a
 dry hole, not ore). Never re-mined. Lives in `71-Spoil/`.
 
-**Re-prospect** — re-evaluate slagged tailings when extraction economics change,
-promoting any that now clear the grade gate. Detection-only script; human gates the
-file-move back to Sites.
+**Reprospect** — the read-only **survey** that re-evaluates slagged Tailings when
+extraction economics shift. A *bounded, closed-world* problem (a finite known set against
+the known pipeline state), so it is **automatable** — unlike prospecting the open world.
+Surfaces candidates; the move back to a Site (verb: **redig**) is a separate human-gated step.
+
+**Bank** — the human gate that authorizes refined bullion into the Treasury (state:
+`authorized`). The agent *deposits* a proposal; the human *banks* it; the script writes it.
+
+---
+
+## Lifecycle Vocabulary
+
+The verbs, surveys, and states of the effort lifecycle. *Verbs are actions; surveys read,
+moves write; folders are authentic place-nouns; `refine`+`bank` are the gated exception.*
+
+| Phase | Verb | Kind | Move | Status | Agency |
+|-------|------|------|------|--------|--------|
+| inflow | **prospect** | survey · *no script* | world → `20-Claims` | (raw) | human, **unbounded** |
+| start | **dig** | move | Claim → `30-Sites` | `dig` | human |
+| assay | — | in-place | — | `dig → ore` | — |
+| set aside | **slag** | move | Site → `70-Tailings` | `slagged` | human/script |
+| discard | **dump** | move | Site → `71-Spoil` | `spent` \| `waste` | human/script |
+| recycle-scan | **reprospect** | survey · *script* | `70-Tailings` | `slagged` | AI, **bounded** |
+| recycle | **redig** | move | Tailings → `30-Sites` | `dig` | human |
+| smelt | **refine** | gated transform | ore → proposal | (refined) | agent/script |
+| gate | **bank** | human gate | proposal → `40-Treasury` | **`authorized`** | human |
+| upkeep | polish | in-place | `40-Treasury` | `refined → polished` | human |
+
+**Agency gradient:** prospecting the open world is unbounded → human-only; reprospecting a
+known Tailings set is bounded → automatable. That's why `reprospect` earns a script and
+`prospect` doesn't.
 
 ---
 

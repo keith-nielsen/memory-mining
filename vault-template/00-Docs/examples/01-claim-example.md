@@ -16,5 +16,5 @@ Tags:: #technology #debugging #git
   This is a CLAIM — a raw capture in 20-Claims/. Claims are deliberately
   unstructured: no rigid schema, no grade, no commitment yet. The only discipline
   at this stage is capturing the thought before it evaporates. Everything else
-  (is it worth digging? how valuable?) is decided later, at Prospect and Sort.
+  (is it worth digging? how valuable?) is decided later, when you dig and at Sort.
 -->

@@ -8,7 +8,7 @@ updated: 2026-06-14
 ---
 ## Rationale
 Read-only projection of effort frontmatter into a Markdown kanban board at
-`10-Logbook/kanban.md`. Columns follow pipeline order (prospect → dig → ore →
+`10-Logbook/kanban.md`. Columns follow pipeline order (dig → ore →
 slagged); within each column rows are sorted grade-descending (gold → silver →
 bronze → coal). Produces one commit. Write-back (card drag → frontmatter update)
 is deferred to agent-tooling. **Not Hermes Kanban** — this is a static Markdown
@@ -21,7 +21,7 @@ work. They are different primitives and are never merged.
 import os, datetime, pathlib, subprocess, frontmatter
 vault = pathlib.Path(os.environ["VAULT_ROOT"])
 grades = ["gold", "silver", "bronze", "coal"]
-statuses = ["prospect", "dig", "ore", "slagged"]
+statuses = ["dig", "ore", "slagged"]
 
 # collect all efforts from Sites + Tailings
 efforts = {}

@@ -16,28 +16,36 @@ for how material moves from raw capture to refined bullion.
 ### Requirement: Pipeline Stages
 
 Every piece of content SHALL have a defined position on the value chain. Stage names
-predict the next stage and the material's current value-state (CONST-01).
+predict the next stage and the material's current value-state (CONST-01). Prospecting is
+the upstream, human act of discovering Claims from the world and is not a Site state — a
+Site is born already committed to work, at `dig`.
 
 | Stage | Location | Object | Key field | Meaning |
 |---|---|---|---|---|
-| Capture | `20-Claims/` | loose note | — | Raw, unsorted input |
-| Prospect | `30-Sites/<slug>/` | effort | `status: prospect` | Staked, under initial validation |
+| Capture | `20-Claims/` | loose note | — | Raw, unsorted input (the inbox) |
 | Dig | `30-Sites/<slug>/` | effort | `status: dig` | Active extraction in progress |
 | Ore | `30-Sites/<slug>/` | effort | `status: ore` + `grade` | Raw material extracted; grade **estimated** |
 | Sort | (process, not folder) | decision | — | 3-way triage |
-| Refine | `40-Treasury/` | knowledge note | `stage: refined` | Grade confirmed; verified + structured into bullion |
+| Refine | `40-Treasury/` | knowledge note | `stage: refined` | Smelted to bullion; grade confirmed |
 | Polish | `40-Treasury/` | knowledge note | `stage: polished` | Perpetual upkeep of bullion |
 | Slagged | `70-Tailings/<slug>/` | effort | `status: slagged` + `slag_reason` | Real value, not economic now; retained, re-minable |
 | Spent husk | `71-Spoil/<slug>/` | husk | `status: spent` | Residue of a successful refine; terminal |
 | Waste | `71-Spoil/<slug>/` | stub | `status: waste` | Proven false or empty; terminal |
 
-#### Scenario: Effort progresses through active statuses
-- **WHEN** an operator promotes a Claim to a Site
-- **THEN** the effort's `_effort.md` is created with `status: prospect`
-- **WHEN** work begins
-- **THEN** the operator sets `status: dig`
+Lifecycle verbs: **dig** (Claim→Site), **slag** (Site→Tailings), **dump** (Site→Spoil),
+**redig** (Tailings→Site), **refine** (ore→bullion, gated), **bank** (the human gate that
+authorizes bullion into the Treasury). **reprospect** is a read-only survey of the
+Tailings.
+
+#### Scenario: A Site is born at dig
+- **WHEN** an operator digs a Claim into a Site
+- **THEN** the effort's `_effort.md` is created with `status: dig` (never `prospect`)
 - **WHEN** material is extracted and assay'd
-- **THEN** the operator sets `status: ore` and sets an estimated `grade`
+- **THEN** the operator sets `status: ore` and an estimated `grade`
+
+#### Scenario: prospect is not a Site status
+- **WHEN** the linter or kanban reads effort statuses
+- **THEN** the valid set is `dig | ore | slagged` — `prospect` is absent (it is the upstream human inflow, not a state)
 
 ---
 
@@ -104,15 +112,15 @@ human-gated move.
 ### Requirement: Value Preservation (INV-9)
 
 Bullion in `40-Treasury/` MUST NOT be moved to `71-Spoil/` or deleted by automation.
-Only effort husks (the residue of a completed refine in `30-Sites/`) are disposed
+Only effort husks (the residue of a completed refine in `30-Sites/`) are dumpd
 to `71-Spoil/`. Waste (proven-false content) is the only material discarded.
 
-#### Scenario: Dispose moves husk, not bullion
-- **WHEN** the dispose script runs for a completed effort
+#### Scenario: Dump moves husk, not bullion
+- **WHEN** the dump script runs for a completed effort
 - **THEN** the `30-Sites/<slug>/` directory moves to `71-Spoil/<slug>/`
 - **THEN** the corresponding Treasury note is untouched
 - **THEN** exactly one Git commit is produced (INV-2)
 
-#### Scenario: Dispose is cleanly revertible
-- **WHEN** `git revert` is applied to the dispose commit
+#### Scenario: Dump is cleanly revertible
+- **WHEN** `git revert` is applied to the dump commit
 - **THEN** the prior state is cleanly restored

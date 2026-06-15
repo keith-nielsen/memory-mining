@@ -55,7 +55,7 @@ Do **not** edit `openspec/specs/` directly — changes come from `/opsx:archive`
 Content flows through a pipeline modeled as ore extraction:
 
 ```
-Capture → Prospect → Dig → Ore → Sort → Refine → Treasury → Polish (perpetual)
+Capture → Dig → Ore → Sort → Refine → Treasury → Polish (perpetual)
 
 Side paths:
   Slagged → 70-Tailings  (retained, re-minable when economics shift)

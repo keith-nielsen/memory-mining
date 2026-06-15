@@ -10,11 +10,36 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+<!-- New entries are added here as changes land. -->
+
+---
+
+## [0.1.4] - 2026-06-15
+
+Lifecycle vocabulary refinement (Informed-Upheaval Protocol, CONST-01) + the project rename.
+
 ### Changed
-- **Renamed:** GitHub repo `memory-mining` → **`2026-AI-Value-Memory-Mining`** (owner's
-  year-prefixed Title-Kebab convention; GitHub redirects the old URL). Internal project
-  identity is **`value-memory-mining`** (lower-kebab, matching the project's own INV-11
-  slug philosophy). URLs/clone-dir use the repo name; titles/prose use the project name.
+- **Retired `prospect` as a Site status.** Prospecting is the *upstream, human* act that
+  discovers Claims from the world — it is not a Site state. Sites are born at `dig`; the
+  effort status set is now `dig | ore | slagged`. Updated `EFFORT_STATUSES`, the effort
+  mold default, the kanban columns, the frontmatter schema, and the `value-pipeline` spec.
+- **Locked the transition verbs:** `dig` (Claim→Site), `slag` (Site→Tailings),
+  **`dump`** (Site→Spoil, renamed from `dispose` → `vault-dump.sh`), `redig`
+  (Tailings→Site), `refine` (ore→bullion), **`bank`** (the human gate that authorizes
+  bullion into the Treasury; state `authorized`). `reprospect` reclassified as the lone
+  automatable read-only survey.
+- New **Lifecycle Vocabulary** table in `docs/glossary.md`; CONST-01 chain updated to
+  `Claim → Dig → Ore → Sort → Refine → Bank → Treasury → Polish`. See ADR-0010.
+- **Renamed:** GitHub repo `memory-mining` → **`2026-AI-Value-Memory-Mining`** (year-prefixed
+  Title-Kebab); internal project identity **`value-memory-mining`** (lower-kebab).
+
+### Migration (existing forks/vaults)
+- Drop `prospect` from `EFFORT_STATUSES` and set the effort mold default to `dig`;
+  `git mv ~/bin/vault-dispose.sh` usage → `vault-dump.sh` (re-`render`).
+
+### Process
+- Constitution-override change `lifecycle-vocabulary` (CONST-01, Tier 1), **authorized**
+  by Keith Nielsen; ADR-0010. CONST-01's principle is sharpened, not sacrificed.
 
 ---
 
@@ -133,6 +158,7 @@ the full PRD acceptance suite; Phase 3 (agent operations) remains spec-only/defe
   naming validator, and commit-gate hook all behave per spec.
 - The documented onboarding was dogfooded literally end-to-end on a fresh vault.
 
+[0.1.4]: https://github.com/keith-nielsen/2026-AI-Value-Memory-Mining/releases/tag/v0.1.4
 [0.1.3]: https://github.com/keith-nielsen/2026-AI-Value-Memory-Mining/releases/tag/v0.1.3
 [0.1.2]: https://github.com/keith-nielsen/2026-AI-Value-Memory-Mining/releases/tag/v0.1.2
 [0.1.1]: https://github.com/keith-nielsen/2026-AI-Value-Memory-Mining/releases/tag/v0.1.1

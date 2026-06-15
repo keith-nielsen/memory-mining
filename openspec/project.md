@@ -59,7 +59,7 @@ INV IDs are **frozen** — see ADR-0008.
 
 - **INV-9 — Refined value is never discarded.** Bullion in `40-Treasury/` is
   never moved to `71-Spoil/` or deleted by automation. Only effort husks are
-  disposed. Only waste (proven false) is discarded.
+  dumpd. Only waste (proven false) is discarded.
 - **INV-10 — Tailings are retained.** Slagged efforts are never auto-purged;
   they keep their Dig metadata for re-prospecting.
 

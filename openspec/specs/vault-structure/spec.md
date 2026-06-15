@@ -119,7 +119,7 @@ in `vault-template/99-Operations/schemas/frontmatter.md` and enforced by the lin
 | `effort` | `30-Sites/<slug>/_effort.md`, `70-Tailings/<slug>/_effort.md` | type, title, status, grade, pillars, started |
 | `daily` | `10-Logbook/Daily/YYYY-MM-DD.md` | type, date |
 | `meta-script` | `99-Operations/scripts/*.md` | type, deploy_target, runtime, class, created, updated |
-| `spoil` | `71-Spoil/<slug>/_effort.md` | type, title, status (spent\|waste), grade, pillars, disposed |
+| `spoil` | `71-Spoil/<slug>/_effort.md` | type, title, status (spent\|waste), grade, pillars, dumpd |
 
 #### Scenario: Linter validates knowledge note frontmatter
 - **WHEN** the linter runs on a `40-Treasury/*.md` file

@@ -14,7 +14,7 @@ binary search**. Read the files in order; each is a real stage in the pipeline.
 ## The pipeline at a glance
 
 ```
-Capture ──► Prospect ──► Dig ──► Ore ──► Sort ──► Refine ──► Treasury ──► Polish
+Capture ──► Dig ──► Ore ──► Sort ──► Refine ──► Treasury ──► Polish
   (1)                  (2: the effort)        (3: proposal)  (4: bullion)
 ```
 
@@ -31,12 +31,12 @@ A raw, unstructured capture. No grade, no schema, no commitment — just the tho
 written down before it evaporates. The only discipline here is *capturing*. Notice the
 claim is casual and a little messy; that is correct for this stage.
 
-## Step 2 — Prospect → Dig → Ore → [`02-site-walkthrough/_effort.md`](./02-site-walkthrough/_effort.md)
+## Step 2 — Dig → Ore → [`02-site-walkthrough/_effort.md`](./02-site-walkthrough/_effort.md)
 
 **Lives in:** `30-Sites/<slug>/_effort.md` (in a real vault)
 
 The Claim was promoted to a Site and worked through three effort statuses:
-`prospect` (is it worth digging?) → `dig` (active extraction) → `ore` (material
+`dig` (active extraction) → `ore` (material
 extracted, grade **estimated**). The `_effort.md` shows the **Dig notes** — long,
 exploratory, redundant. That is their job. The durable value is *not* here yet.
 
@@ -79,8 +79,8 @@ From here the note enters **Polish** — perpetual, lightweight upkeep. It is ne
 
 ## What happened to the husk?
 
-After the bullion was banked, the Site husk in `30-Sites/` was disposed to `71-Spoil/`
-(`status: spent`) via `vault-dispose.sh`. The husk is residue; its value is already in
+After the bullion was banked, the Site husk in `30-Sites/` was dumpd to `71-Spoil/`
+(`status: spent`) via `vault-dump.sh`. The husk is residue; its value is already in
 the Treasury. The bullion is **never** moved or deleted by automation (INV-9).
 
 Had the ore turned out to be low-value or uneconomic instead, it would have been

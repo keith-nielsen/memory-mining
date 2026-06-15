@@ -129,7 +129,7 @@ failure modes above:
 
 | Failure mode | This system's response |
 |---|---|
-| Inbox pile | Claim → Prospect gate; Sort triage forces a decision |
+| Inbox pile | Claim → Dig commitment; Sort triage forces a decision |
 | Agent trust erosion | Deposit-not-merge; human gate; no direct Treasury writes |
 | Naming chaos | INV-11 + naming validator + pre-commit hook |
 | Grade inflation | Grade = value only; estimated at ore, confirmed at refine |

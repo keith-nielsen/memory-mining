@@ -32,7 +32,7 @@ Orientation first, structure second, mechanics third, safety and infrastructure 
 flowchart LR
     CL([20-Claims]):::blue
     LB([10-Logbook]):::blue
-    SI([30-Sites<br/>Prospect→Dig→Ore]):::blue
+    SI([30-Sites<br/>Dig→Ore]):::blue
     SORT{Sort}:::blue
     REF[Refine]:::gold
     TR([40-Treasury]):::gold
@@ -42,7 +42,7 @@ flowchart LR
     SP([71-Spoil]):::brown
     CR([80-Crucible]):::crucible
 
-    CL -->|stake & prospect| SI
+    CL -->|dig| SI
     SI -.->|records| LB
     TR -.->|records| LB
     SI -->|ore| SORT
@@ -81,19 +81,18 @@ flowchart LR
 stateDiagram-v2
     direction TB
 
-    [*] --> prospect : Claim promoted to Site
+    [*] --> dig : Claim dug into a Site
 
-    prospect --> dig : Operator begins investigation
     dig --> ore : Digging produces material<br/>grade estimated
 
     ore --> refining : Sort — highgrade clears gate
     ore --> slagged : Sort — uneconomic now
-    ore --> waste : Sort — proven false → Dispose
+    ore --> waste : Sort — proven false → Dump
     ore --> refining : Crucible — rare<br/>ambiguous/ultravaluable
 
     slagged --> ore : Re-prospect<br/>economics shifted
 
-    refining --> spent : Bullion banked in Treasury<br/>husk disposed
+    refining --> spent : Bullion banked in Treasury<br/>husk dumpd
     refining --> slagged : Refine downgrade<br/>confirmed lower than estimated
 
     spent --> [*]
@@ -135,7 +134,7 @@ flowchart TB
         DET[Detect ore at gate]:::script
         Q>_refine-queue.json]:::script
         EXEC[Write bullion<br/>+ link Catalog]:::script
-        ARCH[Dispose husk<br/>→ 71-Spoil]:::script
+        ARCH[Dump husk<br/>→ 71-Spoil]:::script
         COM[git commit]:::script
     end
 
@@ -275,12 +274,12 @@ flowchart TD
         D99["99-Operations"]:::infra
     end
 
-    D20 -->|prospect| D30
+    D20 -->|dig| D30
     D30 -->|refine| D40
     D40 -->|draw| D50
     D40 -->|draw| D60
     D30 -->|slag| D70
-    D30 -->|dispose| D71
+    D30 -->|dump| D71
 
     classDef onboard fill:#e0e0e0,stroke:#9e9e9e,color:#333
     classDef blue fill:#42a5f5,stroke:#1976d2,color:#fff

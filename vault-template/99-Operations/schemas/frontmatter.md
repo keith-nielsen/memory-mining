@@ -46,8 +46,8 @@ updated: YYYY-MM-DD
 ```yaml
 type: effort
 title: string
-status: enum               # prospect | dig | ore | slagged
-grade: enum                # one of GRADES; estimated at ore, confirmed at refine (blank while prospect/dig)
+status: enum               # dig | ore | slagged
+grade: enum                # one of GRADES; estimated at ore, confirmed at refine (blank while dig)
 pillars: [string, ...]     # subset of PILLARS
 started: YYYY-MM-DD
 completed: YYYY-MM-DD      # optional
@@ -89,5 +89,5 @@ grade: enum                # grade at time of disposal (forensic record)
 pillars: [string, ...]
 started: YYYY-MM-DD
 completed: YYYY-MM-DD
-disposed: YYYY-MM-DD       # date moved to Spoil
+dumpd: YYYY-MM-DD       # date moved to Spoil
 ```

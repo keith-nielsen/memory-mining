@@ -1,7 +1,7 @@
 ---
 type: effort
 title: 
-status: prospect
+status: dig
 grade: 
 pillars: []
 started: {{date}}

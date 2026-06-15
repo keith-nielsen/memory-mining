@@ -18,7 +18,7 @@ test script, and (c) state the one durable principle worth keeping.
 
 <!--
   This effort has reached status: ore. It was promoted from the Claim, walked
-  through prospect → dig → ore, and its grade was ESTIMATED as gold. The messy
+  through dig → ore, and its grade was ESTIMATED as gold. The messy
   working notes below are the Dig — they are NOT the durable output. The durable
   output is the distilled bullion (see 04-treasury-bullion.md). Dig notes are
   allowed to be long, redundant, and exploratory. That is their job.

@@ -89,7 +89,7 @@ Each is offline and deterministic (INV-6).
 | `orphans.md` | `~/bin/vault-orphans.py` | manual / weekly | Report Treasury notes not linked from any Catalog MOC |
 | `refine-detect.md` | `~/bin/vault-refine-detect.py` | cron daily | Queue ore whose grade cleared the Sort gate |
 | `refine-execute.md` | `~/bin/vault-refine-execute.py` | manual | Apply approved proposals from `_refine-approved/`; writes Treasury |
-| `dispose.md` | `~/bin/vault-dispose.sh` | manual | Move a spent husk to `71-Spoil/`; one commit |
+| `dump.md` | `~/bin/vault-dump.sh` | manual | Move a spent husk to `71-Spoil/`; one commit |
 | `slag.md` | `~/bin/vault-slag.sh` | manual | Move an uneconomic effort to `70-Tailings/`; one commit |
 | `reprospect.md` | `~/bin/vault-reprospect.py` | manual | List slagged efforts for re-evaluation; detection only |
 | `rollover.md` | `~/bin/vault-rollover.py` | cron `2 0 * * *` | Append open dig carry-overs to today's daily note |
@@ -103,4 +103,4 @@ Each is offline and deterministic (INV-6).
 
 #### Scenario: Kanban render produces a structured board
 - **WHEN** `vault-kanban-render.py` runs
-- **THEN** `10-Logbook/kanban.md` is written with four status-column headings in pipeline order (Prospect/Dig/Ore/Slagged), rows sorted grade-descending within each column, and a read-only notice; one commit produced
+- **THEN** `10-Logbook/kanban.md` is written with three status-column headings in pipeline order (Dig/Ore/Slagged), rows sorted grade-descending within each column, and a read-only notice; one commit produced

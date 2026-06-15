@@ -218,12 +218,12 @@ Then run any operation:
 | Find orphaned Treasury notes | `python3 ~/bin/vault-orphans.py` |
 | Render kanban board | `python3 ~/bin/vault-kanban-render.py` |
 | Slag an effort | Set frontmatter, then `vault-slag.sh <slug>` |
-| Dispose a husk | `vault-dispose.sh <slug>` |
+| Dump a husk | `vault-dump.sh <slug>` |
 | Re-prospect Tailings | `python3 ~/bin/vault-reprospect.py` |
 | Check for drift | `python3 ~/bin/vault-render.py reconcile` |
 | Re-deploy after source edit | `python3 ~/bin/vault-render.py render` |
 
-(`vault-slag.sh` and `vault-dispose.sh` need only `VAULT_ROOT`; the others read the
+(`vault-slag.sh` and `vault-dump.sh` need only `VAULT_ROOT`; the others read the
 vocab variables too — sourcing `config.env` covers all of them.)
 
 ---
