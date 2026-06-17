@@ -101,6 +101,30 @@ INV IDs are **frozen** — see `openspec/adr/0008-invariant-criticality-ordering
 
 ---
 
+## Runbooks — repeatable operations live in `96-Runbooks/`
+
+High-value, error-prone, repeatable procedures are codified as **spec-as-code runbooks** in
+`vault-template/96-Runbooks/` (schema: `99-Operations/schemas/runbook.md`) — the single,
+harness-agnostic source of truth. **To perform one, open and follow the runbook; do not improvise:**
+
+- `close-daily` — close a daily note (full disposition sweep) before advancing to the next day.
+- `seal-provenance` — forensically seal a gold artifact (hash + signature + OTS/Bitcoin + signed tag).
+
+This file (and `CLAUDE.md`, Claude Code skills, etc.) are **adapters** — they point at the
+runbooks; the runbooks hold the procedure. Determinism first: prefer the `.py`/`.sh` meta-scripts a
+runbook references; invoke AI only at an explicit `unknown/other` step (see ADR-0011).
+
+## Operating notes (footguns this repo has hit)
+
+- `grep -rl PATTERN .` emits paths **without** the `./` prefix — an exclusion anchored `^\./…`
+  silently fails to match. Use `grep -v 'openspec/changes/'` (no `^./`).
+- `vault-kanban-render.py` and `vault-close-day.py` **auto-commit**; a prior `git add` can let
+  their commit sweep in unrelated staged changes. Stage/commit deliberately around them.
+- Vault scripts need `VAULT_ROOT` exported (the pre-commit hook fails loudly without it).
+- The operator's SSH signing key is theirs — **never sign/stamp/tag as them** (`seal-provenance`
+  steps 3–4 and 6 are human `[gate]`s).
+- Never self-authorize a `constitution-override` — Gate 4 is human-only.
+
 ## Things never to do
 
 - Edit `openspec/specs/` directly without an OpenSpec change.

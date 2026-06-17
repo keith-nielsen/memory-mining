@@ -1,6 +1,7 @@
 ---
 type: daily
 date: {{date}}
+closed:
 ---
 # {{date}}
 

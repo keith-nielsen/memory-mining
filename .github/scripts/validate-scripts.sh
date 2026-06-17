@@ -73,6 +73,35 @@ python3 "$HOME/bin/vault-refine-detect.py" | grep -q "queued 0" && ok "refine-de
 # kanban renders
 python3 "$HOME/bin/vault-kanban-render.py" >/dev/null && [ -f "$VAULT/10-Logbook/kanban.md" ] && ok "kanban render" || no "kanban"
 
+hdr "close-daily lifecycle"
+mk_day(){ cat > "$VAULT/10-Logbook/Daily/$1.md" <<EOF
+---
+type: daily
+date: $1
+closed:
+---
+# $1
+
+## Log
+Work happened.
+
+## Captured
+- Idea: something worth a claim later.
+EOF
+}
+mk_day 2020-01-01; mk_day 2020-01-02
+git add -A; git commit -qm "smoke days" --no-verify
+# strict-order gate: cannot close 01-02 while 01-01 is open
+# (capture-then-grep: the script exits non-zero by design, which pipefail would propagate)
+gate_out=$(python3 "$HOME/bin/vault-close-day.py" 2020-01-02 2>&1 || true)
+echo "$gate_out" | grep -q BLOCKED && ok "close strict-order gate" || no "close gate"
+# close in order; deterministic items seal with no unknown/other
+python3 "$HOME/bin/vault-close-day.py" 2020-01-01 >/dev/null 2>&1
+python3 "$HOME/bin/vault-close-day.py" 2020-01-02 >/dev/null 2>&1
+D1="$VAULT/10-Logbook/Daily/2020-01-01.md"
+if grep -qE '^closed: 2[0-9]{3}-' "$D1" && grep -q '## Close' "$D1"; then ok "close-daily seals + manifest"; else no "close-daily seal"; fi
+python3 "$HOME/bin/vault-close-day.py" --check 2020-01-01 2>&1 | grep -q "close-lint OK" && ok "close-lint --check" || no "close-lint"
+
 hdr "INV-11 executor boundary (A3.3 executor side)"
 # A non-conforming target_note must be rejected with no Treasury write.
 cat > "$VAULT/20-Claims/_refine-approved/bad.json" <<'JSON'

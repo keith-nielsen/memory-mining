@@ -150,6 +150,40 @@ jobs:
           sys.exit(1 if errors else 0)
           EOF
 
+  runbook-lint:
+    name: Runbook lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Validate runbook schema (frontmatter + required sections)
+        run: |
+          python3 - << 'EOF'
+          import pathlib, re, sys
+          FM_KEYS = {"type", "id", "title", "trigger", "applies-to", "class", "last-validated"}
+          SECTIONS = ["## Purpose", "## Preconditions", "## Steps", "## Pitfalls", "## Verification", "## Rollback"]
+          errors = []
+          rbs = sorted(pathlib.Path("vault-template/96-Runbooks").glob("*.md"))
+          if not rbs:
+            errors.append("no runbooks in vault-template/96-Runbooks/")
+          for p in rbs:
+            t = p.read_text()
+            m = re.match(r"^---\n(.*?)\n---\n", t, re.S)
+            if not m:
+              errors.append(f"{p.name}: missing frontmatter"); continue
+            keys = {ln.split(':', 1)[0].strip() for ln in m.group(1).splitlines() if ':' in ln}
+            miss = FM_KEYS - keys
+            if miss:
+              errors.append(f"{p.name}: missing frontmatter keys {sorted(miss)}")
+            for s in SECTIONS:
+              if s not in t:
+                errors.append(f"{p.name}: missing section {s}")
+          for e in errors:
+            print("FAIL:", e, file=sys.stderr)
+          print("runbook-lint OK" if not errors else f"{len(errors)} problem(s)")
+          sys.exit(1 if errors else 0)
+          EOF
+
   naming-validator:
     name: Naming validator unit tests
     runs-on: ubuntu-latest

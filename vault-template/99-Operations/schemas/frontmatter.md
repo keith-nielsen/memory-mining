@@ -61,6 +61,7 @@ slag_reason: string        # required when status == slagged
 ```yaml
 type: daily
 date: YYYY-MM-DD
+closed: YYYY-MM-DD          # set by close-daily; absent/blank = open (legacy or in-progress)
 ```
 
 ---
@@ -79,6 +80,22 @@ updated: YYYY-MM-DD
 
 ---
 
+## `runbook` — `96-Runbooks/*.md`
+
+```yaml
+type: runbook
+id: kebab-slug             # stable id (matches filename stem)
+title: string
+trigger: string            # when to invoke
+applies-to: enum           # vault | repo | both
+class: procedure           # literal
+last-validated: YYYY-MM-DD
+```
+
+See `99-Operations/schemas/runbook.md` for the required body sections.
+
+---
+
 ## `spoil` — `71-Spoil/<slug>/_effort.md`
 
 ```yaml
@@ -89,5 +106,5 @@ grade: enum                # grade at time of disposal (forensic record)
 pillars: [string, ...]
 started: YYYY-MM-DD
 completed: YYYY-MM-DD
-dumpd: YYYY-MM-DD       # date moved to Spoil
+dumped: YYYY-MM-DD      # date moved to Spoil
 ```
