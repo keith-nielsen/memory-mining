@@ -14,6 +14,29 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
+## [0.1.6] - 2026-06-19
+
+Naming & identity (Informed-Upheaval Protocol, conforming amendment) — intuitive names + self-identifying artifacts.
+
+### Changed
+- **`moc → index`** — Catalog overview notes are now `<pillar>-index.md` (`type: index`); the mold,
+  the `index_links` proposal field, and CONST-05's label "(MOCs)" → "(indexes)" follow. "MOC" (Map
+  of Content) was opaque PKM jargon; "index" is self-teaching. The *principle* (domain via metadata
+  + Catalog, never folders) is unchanged.
+- **`_effort → <slug>/<slug>.md`** — a Site/Tailings/Spoil effort note is now the **folder-note**
+  (stem == folder), self-identifying in any flat view (graph/search/migration) instead of an
+  anonymous `_effort.md`. Maintenance scripts locate it as "the file whose stem equals its folder."
+  See ADR-0013.
+
+### Migration (existing forks/vaults)
+- `git mv 40-Treasury/Catalog/<pillar>-moc.md → -index.md` (+ `home`); `git mv 30-Sites/<slug>/_effort.md → <slug>/<slug>.md`
+  (and Tailings/Spoil); repoint wikilinks (`/_effort|` → `/<slug>|`, `-moc` → `-index`); re-render scripts.
+
+### Process
+- Constitution-override `naming-and-identity` (CONST-05 label, Tier 1), **authorized** by Keith Nielsen; ADR-0013.
+
+---
+
 ## [0.1.5] - 2026-06-17
 
 Spec-as-code runbooks + the daily close lifecycle (Informed-Upheaval Protocol, conforming amendment).
@@ -184,6 +207,7 @@ the full PRD acceptance suite; Phase 3 (agent operations) remains spec-only/defe
   naming validator, and commit-gate hook all behave per spec.
 - The documented onboarding was dogfooded literally end-to-end on a fresh vault.
 
+[0.1.6]: https://github.com/keith-nielsen/2026-AI-Value-Memory-Mining/releases/tag/v0.1.6
 [0.1.5]: https://github.com/keith-nielsen/2026-AI-Value-Memory-Mining/releases/tag/v0.1.5
 [0.1.4]: https://github.com/keith-nielsen/2026-AI-Value-Memory-Mining/releases/tag/v0.1.4
 [0.1.3]: https://github.com/keith-nielsen/2026-AI-Value-Memory-Mining/releases/tag/v0.1.3
