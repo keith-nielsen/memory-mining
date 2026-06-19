@@ -251,7 +251,7 @@ flowchart TD
 
     subgraph VALUE["🟡  Crown Jewels — Layer 1 · touch: weekly"]
         D40["40-Treasury"]:::gold
-        CAT["  └─ Catalog (MOCs)"]:::gold
+        CAT["  └─ Catalog (indexes)"]:::gold
     end
 
     subgraph PRODUCE["🟢  Production — future · touch: occasional"]

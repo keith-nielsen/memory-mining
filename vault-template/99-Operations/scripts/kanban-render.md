@@ -26,7 +26,7 @@ statuses = ["dig", "ore", "slagged"]
 # collect all efforts from Sites + Tailings
 efforts = {}
 for src in ["30-Sites", "70-Tailings"]:
-    for idx in sorted((vault / src).glob("*/_effort.md")):
+    for idx in sorted(p for p in (vault / src).glob("*/*.md") if p.stem == p.parent.name):
         m = frontmatter.load(idx).metadata
         status = m.get("status", "")
         if status not in statuses:
@@ -49,7 +49,7 @@ for status in statuses:
     lines.append(f"## {status.capitalize()} ({len(items)})")
     if items:
         for grade, title, slug, src in items:
-            lines.append(f"- `{grade}` [[{src}/{slug}/_effort|{slug}]] — {title}")
+            lines.append(f"- `{grade}` [[{src}/{slug}/{slug}|{slug}]] — {title}")
     else:
         lines.append("_empty_")
     lines.append("")

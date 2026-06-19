@@ -65,7 +65,7 @@ headroom.
   daily.md
   effort.md
   knowledge.md
-  moc.md
+  index.md
 98-Warehouse/
 99-Operations/
   config.env
@@ -125,12 +125,12 @@ in `vault-template/99-Operations/schemas/frontmatter.md` and enforced by the lin
 | Type | Location | Key fields |
 |---|---|---|
 | `knowledge` | `40-Treasury/*.md` | type, title, pillars, grade, stage, crucible, created, updated |
-| `moc` | `40-Treasury/Catalog/*.md` | type, pillar, created, updated |
-| `effort` | `30-Sites/<slug>/_effort.md`, `70-Tailings/<slug>/_effort.md` | type, title, status, grade, pillars, started |
+| `index` | `40-Treasury/Catalog/*.md` | type, pillar, created, updated |
+| `effort` | `30-Sites/<slug>/<slug>.md`, `70-Tailings/<slug>/<slug>.md` | type, title, status, grade, pillars, started |
 | `daily` | `10-Logbook/Daily/YYYY-MM-DD.md` | type, date, closed |
 | `meta-script` | `99-Operations/scripts/*.md` | type, deploy_target, runtime, class, created, updated |
 | `runbook` | `96-Runbooks/*.md` | type, id, title, trigger, applies-to, class, last-validated |
-| `spoil` | `71-Spoil/<slug>/_effort.md` | type, title, status (spent\|waste), grade, pillars, dumped |
+| `spoil` | `71-Spoil/<slug>/<slug>.md` | type, title, status (spent\|waste), grade, pillars, dumped |
 
 The `daily` `closed` field records that the day passed the `close-daily` ritual: it is
 absent (legacy/open) or an ISO date (the day it was closed). The `runbook` schema is
@@ -159,9 +159,9 @@ the universal pillars — physical practices, devotions, games, craft discipline
 A candidate earns pillar standing only if it is distinct (non-overlapping domain),
 top-level (life-domain, not a sub-interest), and durable (years, not a phase).
 
-The build creates one `Catalog/` MOC per pillar plus a Home MOC. The linter
+The build creates one `Catalog/` index per pillar plus a Home index. The linter
 validates every note's `pillars` field against the configured set.
 
-#### Scenario: MOC count matches pillar count
+#### Scenario: index count matches pillar count
 - **WHEN** Phase 1 build completes
-- **THEN** `count(PILLARS) + 1` Catalog MOC files exist (one per pillar + `pillar: home`)
+- **THEN** `count(PILLARS) + 1` Catalog index files exist (one per pillar + `pillar: home`)

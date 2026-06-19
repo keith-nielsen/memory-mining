@@ -48,8 +48,8 @@ for prop in sorted(approved.glob("*.json")):
                         + f"\n\n{p['insight_md']}\n\n## Provenance\n{p['provenance_md']}\n")
     else:
         raise ValueError(f"bad mode: {p['mode']}")
-    for moc in p["moc_links"]:
-        mp = vault / moc
+    for link in p["index_links"]:
+        mp = vault / link
         mp.write_text(mp.read_text() + f"\n- [[{note.stem}]]")
     prop.unlink()
     print(f"refined -> {note}")

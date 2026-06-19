@@ -1,12 +1,12 @@
 ---
-type: moc
-pillar: social
+type: index
+pillar: technology
 created: 2026-06-14
 updated: 2026-06-14
 ---
-# Social MOC
+# Technology index
 
-> Front door for the social pillar. Curate links below.
+> Front door for the technology pillar. Curate links below.
 
 ## Core
 

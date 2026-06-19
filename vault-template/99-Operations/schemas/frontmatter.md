@@ -30,18 +30,18 @@ tags: [string, ...]        # optional
 
 ---
 
-## `moc` — `40-Treasury/Catalog/*.md`
+## `index` — `40-Treasury/Catalog/*.md`
 
 ```yaml
-type: moc
-pillar: string             # one PILLARS value, or "home" for the Home MOC
+type: index
+pillar: string             # one PILLARS value, or "home" for the Home index
 created: YYYY-MM-DD
 updated: YYYY-MM-DD
 ```
 
 ---
 
-## `effort` — `30-Sites/<slug>/_effort.md` or `70-Tailings/<slug>/_effort.md`
+## `effort` — `30-Sites/<slug>/<slug>.md` or `70-Tailings/<slug>/<slug>.md`
 
 ```yaml
 type: effort
@@ -96,7 +96,7 @@ See `99-Operations/schemas/runbook.md` for the required body sections.
 
 ---
 
-## `spoil` — `71-Spoil/<slug>/_effort.md`
+## `spoil` — `71-Spoil/<slug>/<slug>.md`
 
 ```yaml
 type: effort

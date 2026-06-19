@@ -18,7 +18,7 @@ writes nothing (INV-10). Trigger: after a meaningful capability or tooling chang
 #!/usr/bin/env python3
 import os, pathlib, frontmatter
 vault = pathlib.Path(os.environ["VAULT_ROOT"])
-for idx in (vault / "70-Tailings").glob("*/_effort.md"):
+for idx in (p for p in (vault / "70-Tailings").glob("*/*.md") if p.stem == p.parent.name):
     m = frontmatter.load(idx).metadata
     print(f"SLAGGED {idx.parent.name}: grade={m.get('grade')} "
           f"reason={m.get('slag_reason', '?')}")

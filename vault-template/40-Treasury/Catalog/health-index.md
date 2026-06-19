@@ -1,12 +1,12 @@
 ---
-type: moc
-pillar: mental
+type: index
+pillar: health
 created: 2026-06-14
 updated: 2026-06-14
 ---
-# Mental MOC
+# Health index
 
-> Front door for the mental pillar. Curate links below.
+> Front door for the health pillar. Curate links below.
 
 ## Core
 

@@ -1,12 +1,12 @@
 ---
-type: moc
-pillar: technology
+type: index
+pillar: mental
 created: 2026-06-14
 updated: 2026-06-14
 ---
-# Technology MOC
+# Mental index
 
-> Front door for the technology pillar. Curate links below.
+> Front door for the mental pillar. Curate links below.
 
 ## Core
 

@@ -48,7 +48,7 @@ vault-root/
 ├── 10-Logbook/      ← daily notes + kanban projection
 ├── 20-Claims/       ← raw captures + refine pipeline queue/approved
 ├── 30-Sites/        ← active workings (dig → ore)
-├── 40-Treasury/     ← refined bullion + Catalog MOCs (Layer 1)
+├── 40-Treasury/     ← refined bullion + Catalog indexes (Layer 1)
 ├── 50-Mint/         ← future: dated editions (deferred)
 ├── 60-Forge/        ← future: bespoke wares (deferred)
 ├── 70-Tailings/     ← slagged ore (retained, re-minable)
@@ -82,8 +82,8 @@ domains. The vault ships with six pillars as examples — adjust to yours:
 PILLARS="mental health financial social technology calling"
 ```
 
-Then update (or replace) the Catalog MOCs in `40-Treasury/Catalog/` to match.
-The Home MOC (`home-moc.md`) links to each pillar's front door.
+Then update (or replace) the Catalog indexes in `40-Treasury/Catalog/` to match.
+The Home index (`home-index.md`) links to each pillar's front door.
 
 ### 2. Bootstrap the scripts
 
@@ -129,7 +129,7 @@ Or set the cron (see `99-Operations/scripts/daily-note.md` for the schedule).
 
 Drop a raw note in `20-Claims/` — a quote, a link, an observation.
 When ready to investigate, create a Site folder in `30-Sites/<slug>/` with an
-`_effort.md` from the mold (`97-Molds/effort.md`).
+`<slug>.md` from the mold (`97-Molds/effort.md`).
 
 ### 5. Check for drift (ongoing)
 
@@ -177,7 +177,7 @@ Full invariant list: `openspec/project.md` (in the template repo) or the build P
 - `99-Operations/schemas/frontmatter.md` — all frontmatter schemas
 - `99-Operations/scripts/` — all operational scripts (literate format)
 - `97-Molds/` — note templates
-- `40-Treasury/Catalog/home-moc.md` — master index
+- `40-Treasury/Catalog/home-index.md` — master index
 
 In the template repo (`2026-AI-Value-Memory-Mining`):
 

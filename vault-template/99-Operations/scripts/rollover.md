@@ -36,7 +36,7 @@ if prev and not frontmatter.load(prev[-1]).metadata.get("closed"):
 
 # collect open dig efforts
 open_digs = []
-for idx in sorted((vault / "30-Sites").glob("*/_effort.md")):
+for idx in sorted(p for p in (vault / "30-Sites").glob("*/*.md") if p.stem == p.parent.name):
     m = frontmatter.load(idx).metadata
     if m.get("status") == "dig":
         open_digs.append(idx.parent.name)
@@ -49,8 +49,8 @@ heading = "## Carry-over"
 
 # build lines to inject (skip any already present)
 existing = text if heading in text else ""
-to_add = [f"- [[30-Sites/{slug}/_effort|{slug}]]" for slug in open_digs
-          if f"30-Sites/{slug}/_effort" not in existing]
+to_add = [f"- [[30-Sites/{slug}/{slug}|{slug}]]" for slug in open_digs
+          if f"30-Sites/{slug}/{slug}" not in existing]
 
 if not to_add:
     print("carry-over already current"); exit(0)

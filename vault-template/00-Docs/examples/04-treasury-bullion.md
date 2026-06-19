@@ -55,8 +55,8 @@ the non-obvious preconditions were kept.
 
 <!--
   This is BULLION — refined, verified knowledge in 40-Treasury/. Compare it to the
-  Dig notes in 02-site-walkthrough/_effort.md: the bullion is shorter, denser, and
+  Dig notes in 02-site-walkthrough/02-site-walkthrough.md: the bullion is shorter, denser, and
   free of the exploratory mess. It distills; it does not transcribe. In a real vault
   this file lives at 40-Treasury/git-bisect-regression-hunting.md (note the kebab-case
-  stem — INV-11) and is linked from 40-Treasury/Catalog/technology-moc.md.
+  stem — INV-11) and is linked from 40-Treasury/Catalog/technology-index.md.
 -->

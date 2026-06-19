@@ -22,7 +22,7 @@ import os, json, pathlib, frontmatter
 vault = pathlib.Path(os.environ["VAULT_ROOT"])
 gate = set(os.environ["REFINE_GATE_GRADES"].split())
 queue = []
-for idx in (vault / "30-Sites").glob("*/_effort.md"):
+for idx in (p for p in (vault / "30-Sites").glob("*/*.md") if p.stem == p.parent.name):
     m = frontmatter.load(idx).metadata
     if m.get("status") == "ore" and m.get("grade") in gate:
         queue.append(str(idx.parent.relative_to(vault)))

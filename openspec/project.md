@@ -71,7 +71,7 @@ INV IDs are **frozen** — see ADR-0008.
   Machine-generated names must additionally be kebab-case slugs. Enforced
   deterministically at the refine executor and the commit-gate hook.
 - **INV-12 — Domain via metadata, not folders.** Pillar membership is expressed
-  only through the `pillars` frontmatter field, tags, and Catalog (MOC) links.
+  only through the `pillars` frontmatter field, tags, and Catalog (index) links.
   `40-Treasury/` must not contain pillar subfolders.
 - **INV-13 — Wikilinks.** Internal links use `[[wikilink]]` form.
 

@@ -68,9 +68,9 @@ Pillar design principles:
 - **Top-level**: no pillar should be a sub-category of another
 - **Durable**: stable for years, not months
 
-Then update `40-Treasury/Catalog/` to match. Either rename the example MOC files or
-create new ones from `97-Molds/moc.md`. The Home MOC (`home-moc.md`) should link to
-each of your pillar MOCs.
+Then update `40-Treasury/Catalog/` to match. Either rename the example index files or
+create new ones from `97-Molds/index.md`. The Home index (`home-index.md`) should link to
+each of your pillar indexes.
 
 ---
 
@@ -157,8 +157,8 @@ Make sure `VAULT_ROOT` inside `config.env` is set to the absolute path of your v
 Open the vault folder in Obsidian. You'll find:
 
 - `00-Docs/README.md` — orientation and getting-started guide (deletable after setup)
-- `40-Treasury/Catalog/home-moc.md` — master index linking to your pillar MOCs
-- `97-Molds/` — note templates (daily, effort, knowledge, moc)
+- `40-Treasury/Catalog/home-index.md` — master index linking to your pillar indexes
+- `97-Molds/` — note templates (daily, effort, knowledge, index)
 - `99-Operations/` — all scripts and config (human-write-only)
 
 For the recommended plugins, settings (incl. the default-new-note-location that keeps
@@ -171,7 +171,7 @@ your inbox tidy), and how to trigger the maintenance scripts from inside Obsidia
 
 | Item | How |
 |------|-----|
-| Pillars | `99-Operations/config.env` → `PILLARS=...`; update Catalog MOCs |
+| Pillars | `99-Operations/config.env` → `PILLARS=...`; update Catalog indexes |
 | Grade gate | `config.env` → `REFINE_GATE_GRADES=...` (default: `silver gold`) |
 | Cron schedules | Edit the `schedule:` field in the relevant `99-Operations/scripts/*.md` note, re-run `render` |
 | Script behaviour | Edit the code block in the relevant `99-Operations/scripts/*.md` note, re-run `render`; verify with `reconcile` |

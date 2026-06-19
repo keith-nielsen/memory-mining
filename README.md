@@ -22,7 +22,7 @@ Copyright 2026 Keith Nielsen
 
 1. **A forkable vault template** — copy `vault-template/` and you have a
    production-ready personal knowledge system with working scripts, note templates,
-   Catalog MOCs, a commit-gate hook, and a documented methodology.
+   Catalog indexes, a commit-gate hook, and a documented methodology.
 
 2. **An OpenSpec SDD showcase** — the repository is itself governed by
    [OpenSpec v1.4.1](openspec/project.md): a formal project spec, a constitution with
@@ -106,10 +106,10 @@ Render them in Obsidian or any Mermaid-capable viewer.
 │   ├── 10-Logbook/              #   daily notes + kanban
 │   ├── 20-Claims/               #   raw captures + refine pipeline queue/approved
 │   ├── 30-Sites/                #   active workings
-│   ├── 40-Treasury/Catalog/     #   bullion + 7 Catalog MOCs (6 pillars + Home)
+│   ├── 40-Treasury/Catalog/     #   bullion + 7 Catalog indexes (6 pillars + Home)
 │   ├── 70-Tailings/             #   slagged ore (retained)
 │   ├── 71-Spoil/                #   terminal: spent husks + waste
-│   ├── 97-Molds/                #   4 note templates (daily, effort, knowledge, moc)
+│   ├── 97-Molds/                #   4 note templates (daily, effort, knowledge, index)
 │   ├── 99-Operations/           #   Layer 0: 13 literate meta-scripts + schemas + config
 │   └── CLAUDE.md                #   agent conventions for vault operations
 │
@@ -172,7 +172,7 @@ cd ~/Documents/my-vault
 
 # 3. Configure your pillars
 #    Edit 99-Operations/config.env → PILLARS="..."
-#    Update 40-Treasury/Catalog/ MOCs to match
+#    Update 40-Treasury/Catalog/ indexes to match
 
 # 4. Bootstrap
 git init
@@ -217,7 +217,7 @@ All scripts are stored as literate meta-script notes in
 | `vault-render.py` | `[script]` | manual | Deploy / reconcile Layer-0 scripts |
 | `vault-daily-note.py` | `[script]` | `1 0 * * *` | Create today's daily note |
 | `vault-lint.py` | `[script]` | manual | Frontmatter + naming conformance |
-| `vault-orphans.py` | `[script]` | manual | Find Treasury notes not linked from any MOC |
+| `vault-orphans.py` | `[script]` | manual | Find Treasury notes not linked from any index |
 | `vault-refine-detect.py` | `[script]` | `0 6 * * *` | Queue ore that has cleared the grade gate |
 | `vault-refine-execute.py` | `[script]` | manual | Apply approved proposals to Treasury |
 | `vault-dump.sh` | `[script]` | manual | Move spent husk to Spoil |

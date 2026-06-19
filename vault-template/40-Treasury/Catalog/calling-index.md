@@ -1,10 +1,10 @@
 ---
-type: moc
+type: index
 pillar: calling
 created: 2026-06-14
 updated: 2026-06-14
 ---
-# Calling MOC
+# Calling index
 
 > Front door for the calling pillar. Curate links below.
 > "Calling" is the catch-all for personal pursuits, creative work, and intrinsic

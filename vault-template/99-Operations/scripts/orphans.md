@@ -7,7 +7,7 @@ created: 2026-06-14
 updated: 2026-06-14
 ---
 ## Rationale
-Reports Treasury bullion not linked from any Catalog MOC. An orphan note is not
+Reports Treasury bullion not linked from any Catalog index. An orphan note is not
 broken — it is simply invisible to navigation. Run weekly (or before any Polish
 session) to surface notes that need a Catalog entry. Detection only; no writes.
 

@@ -1,10 +1,10 @@
 ---
-type: moc
+type: index
 pillar: financial
 created: 2026-06-14
 updated: 2026-06-14
 ---
-# Financial MOC
+# Financial index
 
 > Front door for the financial pillar. Curate links below.
 

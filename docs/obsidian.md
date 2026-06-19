@@ -29,9 +29,9 @@ All built in — no community plugins required for the core workflow.
 
 | Plugin | Why |
 |--------|-----|
-| **Templates** | Instantiate the `97-Molds/` molds (effort / knowledge / moc) |
+| **Templates** | Instantiate the `97-Molds/` molds (effort / knowledge / index) |
 | **Daily Notes** | Create/open today's daily note from `97-Molds/daily.md` |
-| **Bookmarks** | Pin `40-Treasury/Catalog/home-moc.md` as your front door |
+| **Bookmarks** | Pin `40-Treasury/Catalog/home-index.md` as your front door |
 | **Outline**, **Backlinks** | Navigation; Backlinks surfaces what links to a note |
 
 Properties (the frontmatter UI) is built in and always on.
@@ -55,13 +55,13 @@ is outside the Value Mining structure and becomes clutter.
 
 ## Creating notes (native — no scripts)
 
-- **Effort / knowledge / moc notes:** Templates plugin → "Insert template" → pick the
+- **Effort / knowledge / index notes:** Templates plugin → "Insert template" → pick the
   mold. The full, correct frontmatter schema drops in and `{{date}}` is filled. You
   never hand-build frontmatter. (See also [Adding Properties](#adding-properties-to-a-new-note).)
 - **Daily notes:** Daily Notes plugin, configured as above. Produces the same file
   `vault-daily-note.py` / cron would — interchangeable and idempotent.
 
-Only the daily note is scripted. The effort/knowledge/moc molds were always meant for
+Only the daily note is scripted. The effort/knowledge/index molds were always meant for
 human instantiation in Obsidian.
 
 ### Adding Properties to a new note
@@ -117,7 +117,7 @@ All are **gate-safe** — none bypass the human approval step, and the commit-ga
   (Dataview) as a punch-list table, each row a *nugget to chew*, with a button that
   lifts the nugget out of the inbox and into a Site to begin digging. The deterministic
   backbone is a `vault-promote.sh` that:
-  1. creates `30-Sites/<slug>/_effort.md` from the `effort` mold;
+  1. creates `30-Sites/<slug>/<slug>.md` from the `effort` mold;
   2. moves the Claim body in as the seed of the **Dig** section;
   3. **prefills the frontmatter dates** — `started:` = today; the original capture date
      is recovered from, in order: the Claim's `captured:` frontmatter → its **git
@@ -131,5 +131,5 @@ All are **gate-safe** — none bypass the human approval step, and the commit-ga
   procedure.
 - **Stray-fragment lint** — flag root-level notes, claims carrying an effort `status`
   field (promotion-pending), and dangling wikilinks.
-- **`99-Operations` index MOC** — one browsable note listing the 13 scripts with
+- **`99-Operations` index index** — one browsable note listing the 13 scripts with
   one-line purposes.

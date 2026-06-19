@@ -106,7 +106,7 @@ hdr "INV-11 executor boundary (A3.3 executor side)"
 # A non-conforming target_note must be rejected with no Treasury write.
 cat > "$VAULT/20-Claims/_refine-approved/bad.json" <<'JSON'
 { "target_note": "40-Treasury/Bad:Name.md", "mode": "create",
-  "insight_md": "x", "provenance_md": "y", "moc_links": [],
+  "insight_md": "x", "provenance_md": "y", "index_links": [],
   "frontmatter": {"pillars": ["technology"], "grade": "gold", "crucible": false} }
 JSON
 out=$(python3 "$HOME/bin/vault-refine-execute.py" 2>&1)
@@ -120,7 +120,7 @@ rm -f "$VAULT/20-Claims/_refine-approved/bad.json"
 cat > "$VAULT/20-Claims/_refine-approved/good.json" <<'JSON'
 { "target_note": "40-Treasury/good-insight.md", "mode": "create",
   "insight_md": "Durable value.", "provenance_md": "Tried X.",
-  "moc_links": ["40-Treasury/Catalog/technology-moc.md"],
+  "index_links": ["40-Treasury/Catalog/technology-index.md"],
   "frontmatter": {"pillars": ["technology"], "grade": "gold", "crucible": false} }
 JSON
 python3 "$HOME/bin/vault-refine-execute.py" >/dev/null 2>&1

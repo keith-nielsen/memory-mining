@@ -31,13 +31,13 @@ A raw, unstructured capture. No grade, no schema, no commitment — just the tho
 written down before it evaporates. The only discipline here is *capturing*. Notice the
 claim is casual and a little messy; that is correct for this stage.
 
-## Step 2 — Dig → Ore → [`02-site-walkthrough/_effort.md`](./02-site-walkthrough/_effort.md)
+## Step 2 — Dig → Ore → [`02-site-walkthrough/02-site-walkthrough.md`](./02-site-walkthrough/02-site-walkthrough.md)
 
-**Lives in:** `30-Sites/<slug>/_effort.md` (in a real vault)
+**Lives in:** `30-Sites/<slug>/<slug>.md` (in a real vault)
 
 The Claim was promoted to a Site and worked through three effort statuses:
 `dig` (active extraction) → `ore` (material
-extracted, grade **estimated**). The `_effort.md` shows the **Dig notes** — long,
+extracted, grade **estimated**). The `<slug>.md` shows the **Dig notes** — long,
 exploratory, redundant. That is their job. The durable value is *not* here yet.
 
 The estimated grade is **gold** — not because the work was hard (it wasn't), but
@@ -51,7 +51,7 @@ because the insight permanently changes how every future regression is handled.
 At **Sort**, the gold ore cleared the refine gate. A refine proposal was produced —
 a JSON object matching the proposal schema (see the `agent-integration` spec). It
 distills the durable insight into `insight_md`, records what was tried in
-`provenance_md`, and names the Catalog MOC to link. Crucially, the proposal
+`provenance_md`, and names the Catalog index to link. Crucially, the proposal
 **distills, it does not transcribe**: the raw `git bisect` command reference is left
 out (it lives in `man git-bisect`); only the *reframe* and the non-obvious
 preconditions are kept.
@@ -70,7 +70,7 @@ Dig notes in step 2 — same subject, but the bullion has shed all the explorato
 It carries the full `knowledge` frontmatter schema (`type`, `title`, `pillars`,
 `grade`, `stage`, `crucible`, dates, `tags`) and a `## Provenance / Changelog`
 section. It is linked from
-[`technology-moc.md`](../../40-Treasury/Catalog/technology-moc.md).
+[`technology-index.md`](../../40-Treasury/Catalog/technology-index.md).
 
 From here the note enters **Polish** — perpetual, lightweight upkeep. It is never
 "finished."

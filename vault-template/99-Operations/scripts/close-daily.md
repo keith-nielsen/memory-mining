@@ -29,7 +29,7 @@ DISPOSITIONS = os.environ.get(
 CLOSE = "## Close"
 LIST_SECTIONS = {"Intentions", "Captured"}
 LINK_RULES = [
-    (r'30-Sites/[^/]+/_effort', 'site'),
+    (r'30-Sites/', 'site'),
     (r'20-Claims/', 'claim'),
     (r'40-Treasury/', 'banked'),
     (r'70-Tailings/', 'slagged'),

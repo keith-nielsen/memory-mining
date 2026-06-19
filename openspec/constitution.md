@@ -44,7 +44,7 @@ the vocabulary is self-teaching.
 **What breaks if you override this:** Mixing or abandoning the metaphor makes names
 stop predicting structure. Newcomers must memorize an arbitrary taxonomy. The
 vocabulary fragments and cognitive flow collapses. Every spec, script, template,
-diagram, MOC name, and glossary entry references this frame — the blast radius is
+diagram, index name, and glossary entry references this frame — the blast radius is
 the entire system.
 
 ---
@@ -104,16 +104,16 @@ bands are added. Every script, spec, and diagram references the numbered paths.
 
 ---
 
-### CONST-05 — Domain via Metadata + Catalog (MOCs), Never Folders
+### CONST-05 — Domain via Metadata + Catalog (indexes), Never Folders
 `tier: 1` · `adr: ADR-0002` · `protects: [INV-12]`
 
 **Principle:** Pillar membership is expressed through the `pillars` frontmatter field,
-tags, and MOC links inside `40-Treasury/Catalog/`. The Treasury root contains no
+tags, and index links inside `40-Treasury/Catalog/`. The Treasury root contains no
 pillar subfolders.
 
 **Rationale:** Knowledge is many-to-many — a note belongs to multiple pillars.
 Folders enforce a single parent, breaking multi-domain membership and portability.
-Tags + MOCs preserve flexible membership while Obsidian's graph and search remain
+Tags + indexes preserve flexible membership while Obsidian's graph and search remain
 accurate.
 
 **What breaks if you override this:** Folder taxonomy forces false single-classification.

@@ -11,7 +11,7 @@ Special: 80-Crucible (rare, by-exception, independent model/operator, direct inj
 
 Always obey:
 - Content is Markdown + YAML frontmatter only, UTF-8. (INV-1)
-- Pillars are metadata + tags + Catalog (MOC) links, never folders under 40-Treasury. (INV-12)
+- Pillars are metadata + tags + Catalog (index) links, never folders under 40-Treasury. (INV-12)
 - Internal links use [[wikilinks]]. (INV-13)
 - NEVER write to 40-Treasury/ or 99-Operations/ autonomously. Agents write only to
   their assigned 30-Sites/<slug>/ working area and 20-Claims/_refine-proposals/.

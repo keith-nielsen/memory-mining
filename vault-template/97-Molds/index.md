@@ -1,12 +1,12 @@
 ---
-type: moc
-pillar: health
-created: 2026-06-14
-updated: 2026-06-14
+type: index
+pillar: 
+created: {{date}}
+updated: {{date}}
 ---
-# Health MOC
+# {{pillar}} index
 
-> Front door for the health pillar. Curate links below.
+> Front door for the {{pillar}} pillar. Curate links below.
 
 ## Core
 

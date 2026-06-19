@@ -41,7 +41,7 @@ library.
 Prospecting — going out into the world to find what's worth a Claim — happens *upstream*,
 before the system; by the time a nugget earns a Site you've already decided it's worth
 digging. So **dig** it: pick a Claim, create `30-Sites/<slug>/`, copy the effort mold
-(`97-Molds/effort.md`) in as `_effort.md`, and set `status: dig`. A Site is born already
+(`97-Molds/effort.md`) in as `<slug>.md`, and set `status: dig`. A Site is born already
 committed to work — there is no "prospect" state.
 
 If first contact shows the nugget isn't worth it after all, `slag` it to `70-Tailings/`
@@ -55,7 +55,7 @@ This is the hinge between the inbox and active work, and getting it clean matter
 half-promoted claim or a leftover fragment is how you end up editing the wrong copy a
 week later.
 
-**The rule: one in-progress effort = exactly one file, `30-Sites/<slug>/_effort.md`.**
+**The rule: one in-progress effort = exactly one file, `30-Sites/<slug>/<slug>.md`.**
 That Site is the *single source of truth* for the effort's state. `20-Claims/` is for
 **un-prospected captures only** — the moment you start prospecting/digging, promote.
 
@@ -65,7 +65,7 @@ so promote it.
 
 **The promotion, step by step:**
 
-1. Create `30-Sites/<slug>/_effort.md` from the `effort` mold (`97-Molds/effort.md`).
+1. Create `30-Sites/<slug>/<slug>.md` from the `effort` mold (`97-Molds/effort.md`).
 2. Fill the frontmatter: `type: effort`, `title`, `status: dig`, `pillars`,
    `started` (today), `grade:` blank (you estimate it at *ore*).
 3. Migrate the claim's content into the body — its substance becomes the
@@ -74,7 +74,7 @@ so promote it.
    git history preserves the original, so you don't need a tombstone (a tombstone is
    just another fragment to wander into).
 5. Repoint any `[[claim]]` wikilinks (e.g. in the daily note) to
-   `[[30-Sites/<slug>/_effort|<slug>]]`, and log the promotion in today's daily.
+   `[[30-Sites/<slug>/<slug>|<slug>]]`, and log the promotion in today's daily.
 6. Commit as one structured change (the commit-gate hook validates every name).
 
 **Where's my work? (on resume)** — three indices, all pointing at the Site:
@@ -147,7 +147,7 @@ estimated, you can downgrade it and re-route to Tailings rather than Treasury.
 
 The **gate** is the chokepoint. A proposal JSON is placed in `_refine-proposals/`
 (by you or an agent). You review it. If it passes, you move it to `_refine-approved/`.
-The executor script writes the Treasury note and links it to the relevant Catalog MOCs.
+The executor script writes the Treasury note and links it to the relevant Catalog indexes.
 
 Nothing enters `40-Treasury/` without a human approval.
 
@@ -156,8 +156,8 @@ Nothing enters `40-Treasury/` without a human approval.
 ## Stage 7: Treasury and Polish
 
 The Treasury (`40-Treasury/`) holds your bullion — refined, verified knowledge.
-Navigate it through the Catalog MOCs (`40-Treasury/Catalog/`): one front-door note
-per pillar, plus the Home MOC.
+Navigate it through the Catalog indexes (`40-Treasury/Catalog/`): one front-door note
+per pillar, plus the Home index.
 
 Polish is perpetual incremental upkeep. Bullion is never "done." As your understanding
 deepens, you return to Treasury notes to add cross-links, correct errors, sharpen

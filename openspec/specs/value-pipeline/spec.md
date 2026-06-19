@@ -39,7 +39,7 @@ Tailings.
 
 #### Scenario: A Site is born at dig
 - **WHEN** an operator digs a Claim into a Site
-- **THEN** the effort's `_effort.md` is created with `status: dig` (never `prospect`)
+- **THEN** the effort's `<slug>.md` is created with `status: dig` (never `prospect`)
 - **WHEN** material is extracted and assay'd
 - **THEN** the operator sets `status: ore` and an estimated `grade`
 

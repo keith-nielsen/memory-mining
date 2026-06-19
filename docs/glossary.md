@@ -109,14 +109,14 @@ known Tailings set is bounded → automatable. That's why `reprospect` earns a s
 **Note** — one `.md` file with YAML frontmatter.
 
 **Pillar** — a top-level life/knowledge domain. Expressed as metadata + tags + a
-Catalog entry (MOC), *never* as a knowledge subfolder. Configured in
+Catalog entry (index), *never* as a knowledge subfolder. Configured in
 `99-Operations/config.env`.
 
-**Catalog** — the collection of Maps of Content (MOCs) inside the Treasury; each MOC
+**Catalog** — the collection of Maps of Content (indexes) inside the Treasury; each index
 is a human-curated "front door" to a pillar. Lives in `40-Treasury/Catalog/`.
 
-**MOC (Map of Content)** — a curated index note that organises links to related
-knowledge notes within a pillar. One per pillar plus a Home MOC.
+**index (Map of Content)** — a curated index note that organises links to related
+knowledge notes within a pillar. One per pillar plus a Home index.
 
 **Layer 0 / Operations** — the self-describing operational partition
 (`99-Operations/`): scripts, config, rationale (literate meta-scripts). Source of

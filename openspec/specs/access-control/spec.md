@@ -45,7 +45,7 @@ Each vault area SHALL grant the access shown below; any actor exceeding its cell
 | `30-Sites/<assigned>` | RW | RW¹ | RW | Agent writes only to its assigned Site |
 | `30-Sites/<other>` | RW | — | RW | Agent cannot touch other Sites |
 | `40-Treasury/` | RW | R³ | gated-W⁴ | Crown jewels — INV-4 |
-| `40-Treasury/Catalog/` | RW | R | gated-W⁴ | MOCs; human curates |
+| `40-Treasury/Catalog/` | RW | R | gated-W⁴ | indexes; human curates |
 | `50-Mint/` | RW | —⁵ | RW | Future production (deferred) |
 | `60-Forge/` | RW | —⁵ | RW | Future production (deferred) |
 | `70-Tailings/` | RW | R | RW | Slagged; re-minable |
