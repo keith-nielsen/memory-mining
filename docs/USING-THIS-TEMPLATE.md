@@ -69,7 +69,7 @@ Pillar design principles:
 - **Durable**: stable for years, not months
 
 Then update `40-Treasury/Catalog/` to match. Either rename the example index files or
-create new ones from `97-Molds/index.md`. The Home index (`home-index.md`) should link to
+create new ones from `97-Molds/index-mold-blank.md`. The Home index (`home-index.md`) should link to
 each of your pillar indexes.
 
 ---

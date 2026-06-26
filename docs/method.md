@@ -41,7 +41,7 @@ library.
 Prospecting — going out into the world to find what's worth a Claim — happens *upstream*,
 before the system; by the time a nugget earns a Site you've already decided it's worth
 digging. So **dig** it: pick a Claim, create `30-Sites/<slug>/`, copy the effort mold
-(`97-Molds/effort.md`) in as `<slug>.md`, and set `status: dig`. A Site is born already
+(`97-Molds/effort-mold-blank.md`) in as `<slug>.md`, and set `status: dig`. A Site is born already
 committed to work — there is no "prospect" state.
 
 If first contact shows the nugget isn't worth it after all, `slag` it to `70-Tailings/`
@@ -65,7 +65,7 @@ so promote it.
 
 **The promotion, step by step:**
 
-1. Create `30-Sites/<slug>/<slug>.md` from the `effort` mold (`97-Molds/effort.md`).
+1. Create `30-Sites/<slug>/<slug>.md` from the `effort` mold (`97-Molds/effort-mold-blank.md`).
 2. Fill the frontmatter: `type: effort`, `title`, `status: dig`, `pillars`,
    `started` (today), `grade:` blank (you estimate it at *ore*).
 3. Migrate the claim's content into the body — its substance becomes the

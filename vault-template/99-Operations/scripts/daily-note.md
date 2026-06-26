@@ -37,7 +37,7 @@ blocked = bool(prev) and not closed(prev[-1])
 if note.exists():
     print(f"exists {note}")
 else:
-    text = (vault / "97-Molds" / "daily.md").read_text().replace("{{date}}", today)
+    text = (vault / "97-Molds" / "daily-mold-blank.md").read_text().replace("{{date}}", today)
     if blocked:
         banner = (f"> ⚠ BLOCKED: close {prev[-1].stem} before advancing "
                   f"(capture is fine; carry-over is gated).\n\n")

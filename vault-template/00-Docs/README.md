@@ -129,7 +129,7 @@ Or set the cron (see `99-Operations/scripts/daily-note.md` for the schedule).
 
 Drop a raw note in `20-Claims/` — a quote, a link, an observation.
 When ready to investigate, create a Site folder in `30-Sites/<slug>/` with an
-`<slug>.md` from the mold (`97-Molds/effort.md`).
+`<slug>.md` from the mold (`97-Molds/effort-mold-blank.md`).
 
 ### 5. Check for drift (ongoing)
 

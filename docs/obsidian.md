@@ -30,7 +30,7 @@ All built in — no community plugins required for the core workflow.
 | Plugin | Why |
 |--------|-----|
 | **Templates** | Instantiate the `97-Molds/` molds (effort / knowledge / index) |
-| **Daily Notes** | Create/open today's daily note from `97-Molds/daily.md` |
+| **Daily Notes** | Create/open today's daily note from `97-Molds/daily-mold-blank.md` |
 | **Bookmarks** | Pin `40-Treasury/Catalog/home-index.md` as your front door |
 | **Outline**, **Backlinks** | Navigation; Backlinks surfaces what links to a note |
 
@@ -45,7 +45,7 @@ Properties (the frontmatter UI) is built in and always on.
 | Files & Links → **Default location for new notes** | **`20-Claims`** | New / dangling-link notes land in the *inbox*, never the vault root. Prevents stray fragments. |
 | Editor → **Properties in document** | Visible | See/edit frontmatter inline |
 | Templates → **Template folder location** | `97-Molds` | Where the molds live |
-| Daily Notes → **Template** / **New file location** / **Format** | `97-Molds/daily.md` / `10-Logbook/Daily` / `YYYY-MM-DD` | Match the `vault-daily-note.py` output exactly |
+| Daily Notes → **Template** / **New file location** / **Format** | `97-Molds/daily-mold-blank.md` / `10-Logbook/Daily` / `YYYY-MM-DD` | Match the `vault-daily-note.py` output exactly |
 
 The default-new-note-location setting is the single most important one: without it, a
 click on an unresolved `[[wikilink]]` creates an empty note at the vault **root**, which
