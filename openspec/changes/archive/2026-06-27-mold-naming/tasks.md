@@ -18,7 +18,7 @@
 
 ## 4. Gate 4 + release (human-gated)
 
-- [ ] 4.1 Gate-4 sign-off recorded in `proposal.md` (Keith — human only)
-- [ ] 4.2 `openspec/adr/00NN-mold-naming.md` (context/options/choice/consequence/sacrifice)
+- [x] 4.1 Gate-4 sign-off recorded in `proposal.md` (Keith — "Authorized", 2026-06-27)
+- [x] 4.2 `openspec/adr/0014-mold-naming.md` (Accepted; context/options/choice/consequence/sacrifice)
 - [ ] 4.3 `/opsx:archive` + CHANGELOG `[0.1.x]` + tag `v0.1.x`
 - [ ] 4.4 Mirror to live vault (`git mv` molds + daily-note path + Obsidian Daily Notes template path + re-render + reconcile zero-drift)

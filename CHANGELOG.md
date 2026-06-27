@@ -14,6 +14,20 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
+## [0.1.7] - 2026-06-27
+
+Mold naming (Informed-Upheaval Protocol, conforming amendment) — self-identifying molds.
+
+### Changed
+- **Molds → `<note-type>-mold-blank.md`** — the four `97-Molds/` templates (`daily`, `effort`,
+  `index`, `knowledge`) are renamed on the `silo-section-descriptor` convention so each mold is
+  self-identifying in any flat / search / migrated view, and `index` no longer collides with the
+  Catalog `<pillar>-index.md` notes. The `daily-note` script's mold path and the docs are repointed;
+  the `vault-structure` Folder Structure listing is updated. No principle weakened (CONST-01 /
+  INV-11 reinforced). See ADR-0014.
+
+---
+
 ## [0.1.6] - 2026-06-19
 
 Naming & identity (Informed-Upheaval Protocol, conforming amendment) — intuitive names + self-identifying artifacts.

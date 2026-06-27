@@ -10,9 +10,7 @@ protects: [CONST-02, CONST-04, CONST-05, INV-1, INV-12]
 Define the physical and conceptual structure of the vault: the folder layout, the
 three-layer model, frontmatter schemas, and note templates. This spec is the
 authority for where things live and what shape they take on disk.
-
 ## Requirements
-
 ### Requirement: Three-Layer Model
 
 The vault SHALL be organized into three named layers with distinct stability and access profiles.
@@ -62,10 +60,10 @@ headroom.
 80-Crucible/         (deferred — folder exists as placeholder)
 96-Runbooks/         (operational runbooks — spec-as-code procedures)
 97-Molds/
-  daily.md
-  effort.md
-  knowledge.md
-  index.md
+  daily-mold-blank.md
+  effort-mold-blank.md
+  knowledge-mold-blank.md
+  index-mold-blank.md
 98-Warehouse/
 99-Operations/
   config.env
@@ -88,6 +86,11 @@ a user opens first each session, so it sorts to the top per CONST-04. `20-Claims
 the capture inbox (an unordered queue), and carries the refine gate
 (`_refine-proposals/`, `_refine-approved/`).
 
+The four `97-Molds/` files are named on the `silo-section-descriptor` convention
+(`<note-type>-mold-blank.md`) so each mold is self-identifying in any flat / search /
+migrated view and never collides with content (e.g. the Catalog `<pillar>-index.md` notes).
+Scripts and the Obsidian Daily Notes template reference a mold by this filename.
+
 #### Scenario: Folder tree is complete after Phase 0
 - **WHEN** Phase 0 build completes
 - **THEN** every directory in the structure above exists, including `20-Claims/_refine-proposals/`, `20-Claims/_refine-approved/`, `99-Operations/hooks/`, and `99-Operations/schemas/`
@@ -104,7 +107,9 @@ the capture inbox (an unordered queue), and carries the refine gate
 - **WHEN** the linter runs against `40-Treasury/`
 - **THEN** it reports no subdirectories other than `Catalog/` (INV-12 enforced)
 
----
+#### Scenario: Molds are self-identifying folder-notes
+- **WHEN** the four `97-Molds/` files are listed flat (graph, search, or migration)
+- **THEN** each stem reads `<note-type>-mold-blank` and none collides with a content stem such as `index`
 
 ### Requirement: Format Invariant
 
@@ -165,3 +170,4 @@ validates every note's `pillars` field against the configured set.
 #### Scenario: index count matches pillar count
 - **WHEN** Phase 1 build completes
 - **THEN** `count(PILLARS) + 1` Catalog index files exist (one per pillar + `pillar: home`)
+

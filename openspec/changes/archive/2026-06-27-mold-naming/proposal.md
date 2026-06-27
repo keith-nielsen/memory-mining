@@ -74,14 +74,14 @@ The note molds carry generic single-word stems (`daily.md`, `effort.md`, `index.
 
 ## Gate 4 — RE-CHECK + HUMAN SIGN-OFF
 
-**Second review confirms blast radius was fully addressed:** ☐
+**Second review confirms blast radius was fully addressed:** ☑
 **Consequences explicitly accepted:**
 
 > Sacrifice: forks/vaults must `git mv` four molds + repoint the `daily-note` path on upgrade (mechanical). No principle, invariant, or workflow is weakened.
 
-**ADR created:** `openspec/adr/00NN-mold-naming.md` ☐
-**ADR captures:** context / options / choice / consequence / **sacrifice** ☐
+**ADR created:** `openspec/adr/0014-mold-naming.md` ☑
+**ADR captures:** context / options / choice / consequence / **sacrifice** ☑
 
 **SIGN-OFF** (human only — agents may not sign):
-Name: ___________________________
-Date: ___________________________
+Name: **Keith Nielsen** — "Authorized." (transcribed by Claude Code at Keith's explicit instruction; the decision is the human's)
+Date: 2026-06-27
