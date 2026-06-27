@@ -99,6 +99,12 @@ Full text and band groupings: `openspec/specs/access-control/spec.md` and PRD §
 
 INV IDs are **frozen** — see `openspec/adr/0008-invariant-criticality-ordering.md`.
 
+**Naming (INV-11):** every `.md` stem carries **≥3 hyphen-tokens — the floor, not the ceiling**; use
+*more* where the extra tokens add human-meaningful specificity. System-artifact families use
+`silo-section-descriptor` (silo first; e.g. molds `<note-type>-mold-blank`); content stems are
+≥3-token slugs; dailies (`YYYY-MM-DD`) are exempt. Convention today (existing sub-3 names
+grandfathered); mechanical enforcement is sequenced later. SSOT: `openspec/specs/naming-rules/spec.md`.
+
 ---
 
 ## Runbooks — repeatable operations live in `96-Runbooks/`
