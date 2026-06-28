@@ -12,7 +12,7 @@ INV-4). The human gate is the act of moving a proposal from `_refine-proposals/`
 `_refine-approved/` — this script never promotes proposals itself. Validates the
 proposed `target_note` stem against the naming ruleset (INV-11) before any write;
 non-conforming names are rejected with a REJECT message, not written. After writing
-the knowledge note it appends wikilinks to the named Catalog MOCs and deletes the
+the knowledge note it appends wikilinks to the named Catalog indexes and deletes the
 consumed proposal. One note per proposal; multiple proposals can be batched.
 
 ## Implementation

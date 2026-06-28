@@ -16,8 +16,8 @@ session) to surface notes that need a Catalog entry. Detection only; no writes.
 #!/usr/bin/env python3
 import os, pathlib, re
 vault = pathlib.Path(os.environ["VAULT_ROOT"])
-moc_text = "\n".join(p.read_text() for p in (vault / "40-Treasury" / "Catalog").glob("*.md"))
-linked = set(re.findall(r"\[\[([^\]|#]+)", moc_text))
+index_text = "\n".join(p.read_text() for p in (vault / "40-Treasury" / "Catalog").glob("*.md"))
+linked = set(re.findall(r"\[\[([^\]|#]+)", index_text))
 orphans = [p.stem for p in (vault / "40-Treasury").glob("*.md") if p.stem not in linked]
 for o in sorted(orphans):
     print(f"ORPHAN {o}")

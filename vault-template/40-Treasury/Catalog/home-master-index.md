@@ -9,7 +9,7 @@ updated: 2026-06-14
 > Master index of the Treasury. One link per pillar index; curate cross-pillar
 > connections and high-signal notes that belong to the whole, not one domain.
 
-## Pillar MOCs
+## Pillar indexes
 
 - [[mental-domain-index|Mental]]
 - [[health-domain-index|Health]]
