@@ -68,14 +68,14 @@ Filenames need enough disambiguating context as the namespace grows. A **≥3-to
 
 ## Gate 4 — RE-CHECK + HUMAN SIGN-OFF
 
-**Second review confirms blast radius was fully addressed:** ☐
+**Second review confirms blast radius was fully addressed:** ☑
 **Consequences explicitly accepted:**
 
 > Sacrifice: none structural — the rule is convention-level until a later change wires mechanical enforcement; no name is renamed and no principle is weakened. The cost deferred to that later change is bringing the remaining families (scripts/schemas/indexes/content) into conformance before rejection can be turned on.
 
-**ADR created:** `openspec/adr/00NN-naming-3token-minimum.md` ☐
-**ADR captures:** context / options / choice / consequence / **sacrifice** ☐
+**ADR created:** `openspec/adr/0015-naming-3token-minimum.md` ☑
+**ADR captures:** context / options / choice / consequence / **sacrifice** ☑
 
 **SIGN-OFF** (human only — agents may not sign):
-Name: ___________________________
-Date: ___________________________
+Name: **Keith Nielsen** — "Authorized." (transcribed by Claude Code at Keith's explicit instruction; the decision is the human's)
+Date: 2026-06-27

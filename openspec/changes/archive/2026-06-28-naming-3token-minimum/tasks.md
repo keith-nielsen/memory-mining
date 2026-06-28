@@ -15,7 +15,7 @@
 
 ## 4. Gate 4 + release (human-gated)
 
-- [ ] 4.1 Gate-4 sign-off recorded in `proposal.md` (Keith — human only)
-- [ ] 4.2 `openspec/adr/00NN-naming-3token-minimum.md` (context/options/choice/consequence/sacrifice)
+- [x] 4.1 Gate-4 sign-off recorded in `proposal.md` (Keith — "Authorized", 2026-06-27)
+- [x] 4.2 `openspec/adr/0015-naming-3token-minimum.md` (Accepted; context/options/choice/consequence/sacrifice)
 - [ ] 4.3 `/opsx:archive` + CHANGELOG `[0.1.8]` + tag `v0.1.8`
 - [ ] 4.4 Mirror naming-guidance note to the live-vault `CLAUDE.md` (if added); no spec mirror (live vault carries no openspec specs)

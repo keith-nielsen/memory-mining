@@ -14,6 +14,19 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
+## [0.1.8] - 2026-06-28
+
+Token-minimum naming (Informed-Upheaval Protocol, conforming amendment) — the ≥3-token naming rule, codified as convention.
+
+### Added
+- **Token-Minimum Naming requirement** in `naming-rules`: every `.md` stem carries **≥3 hyphen-tokens
+  — the floor, not the ceiling** (use *more* where the extra tokens add human-meaningful specificity).
+  System-artifact families use `silo-section-descriptor` (silo first); content stems are ≥3-token
+  slugs; dailies exempt. Existing sub-3 names grandfathered; **mechanical enforcement is deferred** to
+  a later change (after the families conform). Agent guidance noted in `AGENTS.md`. See ADR-0015.
+
+---
+
 ## [0.1.7] - 2026-06-27
 
 Mold naming (Informed-Upheaval Protocol, conforming amendment) — self-identifying molds.
