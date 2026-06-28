@@ -1,5 +1,9 @@
 # Vault conventions — Value Mining (read before any operation)
 
+**Session start:** follow `96-Runbooks/session-bootstrap-loader` — source `99-Operations/config.env`,
+engage the gates (governance-first · re-read-before-acting · autonomy-bans · clean-ops), and know the
+just-in-time pointers. A Claude Code SessionStart hook surfaces it automatically.
+
 This vault is a Value Mining operation governed by 99-Operations/ and the build PRD.
 Content flows: Capture (20-Claims) -> Dig -> Ore -> Sort -> Refine ->
   bullion deposited in 40-Treasury -> Polish (perpetual).

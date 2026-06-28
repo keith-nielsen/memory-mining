@@ -1,0 +1,14 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cat \"$CLAUDE_PROJECT_DIR/vault-template/96-Runbooks/session-bootstrap-loader.md\" 2>/dev/null || true"
+          }
+        ]
+      }
+    ]
+  }
+}

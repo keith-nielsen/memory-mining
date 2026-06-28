@@ -113,6 +113,7 @@ High-value, error-prone, repeatable procedures are codified as **spec-as-code ru
 `vault-template/96-Runbooks/` (schema: `99-Operations/schemas/runbook-format-schema.md`) — the single,
 harness-agnostic source of truth. **To perform one, open and follow the runbook; do not improvise:**
 
+- `session-bootstrap-loader` — **cold-start prime**: source env, engage the gates, know the JIT pointers (a SessionStart hook surfaces it). Run it first each session.
 - `close-daily` — close a daily note (full disposition sweep) before advancing to the next day.
 - `seal-provenance` — forensically seal a gold artifact (hash + signature + OTS/Bitcoin + signed tag).
 
