@@ -131,6 +131,9 @@ runbook references; invoke AI only at an explicit `unknown/other` step (see ADR-
 - The operator's SSH signing key is theirs — **never sign/stamp/tag as them** (`provenance-seal-runbook`
   steps 3–4 and 6 are human `[gate]`s).
 - Never self-authorize a `constitution-override` — Gate 4 is human-only.
+- The deployed vault is **PRIVATE (INV-14)**. Never push / mirror it outward or create a public repo
+  from it, and **never even _propose_** outbound publication — the suggestion itself is the hazard.
+  Publishing is deliberate, human-initiated, and `PUSH_ALLOWLIST`-gated (deny-by-default `pre-push`).
 
 ## Things never to do
 

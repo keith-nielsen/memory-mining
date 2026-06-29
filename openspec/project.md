@@ -22,7 +22,7 @@ spec-driven process on their own vault.
 5. **Broad adoption.** Apache-2.0 license; no CLA requirement at launch; third-party
    tools orchestrated, never vendored.
 
-## Architectural Principles (INV-1 – INV-13)
+## Architectural Principles (INV-1 – INV-14)
 
 These are extracted from the PRD and are the authoritative invariant list.
 INV IDs are **frozen** — see ADR-0008.
@@ -54,6 +54,14 @@ INV IDs are **frozen** — see ADR-0008.
 - **INV-8 — Crucible independence.** The Crucible uses an independent
   model/operator, distinct from the main process agent. The main agent is
   excluded from `80-Crucible/`.
+- **INV-14 — Private by default; no unbid publication.** A deployed vault is
+  private. No automated actor (agent or script) may push, mirror, or replicate
+  vault content to any remote except a destination the operator has explicitly
+  listed in `PUSH_ALLOWLIST`. Creating a public repository or publishing to an
+  external distribution hub requires deliberate human confirmation — never an
+  agent's unprompted suggestion. Enforced structurally (deny-by-default
+  `pre-push` guard + agent-harness guard), never by trust. Appended per the
+  frozen-ID rule (ADR-0008); INV-1–13 unchanged.
 
 ### Value — preservation guarantees
 

@@ -26,7 +26,7 @@ Copyright 2026 Keith Nielsen
 
 2. **An OpenSpec SDD showcase** — the repository is itself governed by
    [OpenSpec v1.4.1](openspec/project.md): a formal project spec, a constitution with
-   constitutional protection, 17 ADRs, 6 capability specs, and a live change-management
+   constitutional protection, 18 ADRs, 6 capability specs, and a live change-management
    workflow. It demonstrates what a principled, spec-driven personal-tools project
    looks like.
 
@@ -97,7 +97,7 @@ Render them in Obsidian or any Mermaid-capable viewer.
 ├── openspec/                    # OpenSpec SDD (spec-driven project governance)
 │   ├── project.md               #   purpose, invariants, standing goals
 │   ├── constitution.md          #   constitutional protection + Informed-Upheaval Protocol
-│   ├── adr/                     #   17 Architecture Decision Records (ADR-0001–0017)
+│   ├── adr/                     #   18 Architecture Decision Records (ADR-0001–0018)
 │   ├── specs/                   #   6 capability specs (vault-structure, value-pipeline, …)
 │   └── changes/                 #   change workflow: archive/, live/, templates/
 │
@@ -140,15 +140,20 @@ Render them in Obsidian or any Mermaid-capable viewer.
 
 ## Constitutional Protection
 
-Thirteen architectural invariants are ordered by criticality band and protected by
+Fourteen architectural invariants are ordered by criticality band and protected by
 `protects:` frontmatter tags on spec files. CI enforces their presence.
 
 | Band | Invariants | Examples |
 |------|-----------|---------|
 | **Substrate** | INV-1–3 | Format (Markdown+YAML), one-commit-per-op, no-auto-fix |
-| **Safety** | INV-4–8 | Agent write scope, Layer 0 ownership, no secrets, offline scripts |
+| **Safety** | INV-4–8, 14 | Agent write scope, Layer 0 ownership, no secrets, offline scripts, **private-by-default** |
 | **Value** | INV-9–10 | Treasury immutability, Tailings retention |
 | **Consistency** | INV-11–13 | Naming rules, no pillar folders, wikilinks |
+
+**Private by default (INV-14):** a deployed vault never publishes outward. A deny-by-default
+`pre-push` guard refuses every push unless you deliberately allowlist a *private* remote
+(`PUSH_ALLOWLIST`), and — for Claude Code users — a `PreToolUse` guard blocks the agent from pushing the
+vault out and warns loudly before any public publish. Removing it is a Tier-0 constitutional act.
 
 Changing a constitutional element requires the **4-gate Informed-Upheaval Protocol**
 (CHECK → PLAN → EXECUTE → RE-CHECK + HUMAN SIGN-OFF). AI agents may draft the first
@@ -236,11 +241,11 @@ the spec framework (see [ADR-0001](openspec/adr/0001-openspec-as-framework.md)).
 
 | Document | Purpose |
 |----------|---------|
-| [`openspec/project.md`](openspec/project.md) | Standing goals, 13 invariants, tech stack |
+| [`openspec/project.md`](openspec/project.md) | Standing goals, 14 invariants, tech stack |
 | [`openspec/constitution.md`](openspec/constitution.md) | Constitutional protection, Informed-Upheaval Protocol |
-| [`openspec/adr/`](openspec/adr/) | 17 ADRs: framework choice → runbook naming |
+| [`openspec/adr/`](openspec/adr/) | 18 ADRs: framework choice → private-by-default |
 | [`openspec/specs/`](openspec/specs/) | 6 capability specs with `protects:` tags |
-| [`openspec/changes/`](openspec/changes/) | 12 archived changes, 1 live (deferred), override template |
+| [`openspec/changes/`](openspec/changes/) | 13 archived changes, 1 live (deferred), override template |
 
 ---
 

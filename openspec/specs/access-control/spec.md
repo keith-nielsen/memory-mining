@@ -1,6 +1,6 @@
 ---
 capability: access-control
-protects: [CONST-02, INV-4, INV-5, INV-6, INV-7, INV-8]
+protects: [CONST-02, INV-4, INV-5, INV-6, INV-7, INV-8, INV-14]
 ---
 <!-- SPDX-License-Identifier: Apache-2.0 -->
 # Spec: access-control

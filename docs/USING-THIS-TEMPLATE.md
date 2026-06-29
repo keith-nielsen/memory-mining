@@ -127,6 +127,29 @@ The hook fires on every commit — by human, script, or agent. It imports
 
 ---
 
+## Step 4b: Push Guard — Private by Default (INV-14)
+
+Your vault is **private by default**. The `pre-push` hook (`push-guard-script`, deployed by `render`
+alongside the commit gate) **refuses every `git push`** unless the target remote is listed in
+`PUSH_ALLOWLIST` (`99-Operations/config.env`). With the allowlist empty (the default), the vault cannot
+publish anywhere — a personal vault holds private, irreversible-if-leaked material.
+
+To enable a **deliberate, PRIVATE** off-machine backup (never a public remote):
+
+```bash
+# 1) confirm the destination repo is PRIVATE and intended
+# 2) add its URL (or a unique substring) to PUSH_ALLOWLIST in 99-Operations/config.env:
+export PUSH_ALLOWLIST="github.com/you/my-vault-private"
+# 3) re-source config.env, then push
+```
+
+Removing the guard entirely changes a **Tier-0 invariant (INV-14)** and requires the
+constitution-override ceremony. If you use Claude Code, the bundled `.claude/` `PreToolUse` guard
+additionally blocks the *agent* from pushing the vault outward and warns loudly before any public
+publish (`gh repo create`, `npm publish`, `gh release`, …).
+
+---
+
 ## Step 5: Set Up Crons (Optional)
 
 Three scripts run on a schedule. Each must see the full vault configuration, so

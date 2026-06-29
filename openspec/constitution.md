@@ -134,7 +134,7 @@ Substrate → Safety → Value → Consistency.
 
 | Tier | Elements | Override path |
 |------|----------|---------------|
-| **Tier 0 — Inviolable** | INV-1 through INV-8, INV-11 | Change the enforcing code/hooks/CI. The friction is structural. |
+| **Tier 0 — Inviolable** | INV-1 through INV-8, INV-11, INV-14 | Change the enforcing code/hooks/CI. The friction is structural. |
 | **Tier 1 — Foundational frame** | CONST-01 through CONST-05 + INV-12 | Full Informed-Upheaval Protocol (§3). This is what the constitution most exists to protect. |
 | **Tier 2 — Conventions** | INV-13 (wikilinks), cron schedules, kebab specifics, pillar names | Ordinary OpenSpec change — no ceremony required. |
 
