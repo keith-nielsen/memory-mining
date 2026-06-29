@@ -132,7 +132,7 @@ duplicate it.
 
 ### Requirement: Daily Close Lifecycle
 
-A daily note SHALL pass a deterministic `close-daily` ritual that assigns every item exactly
+A daily note SHALL pass a deterministic `daily-close` ritual that assigns every item exactly
 one disposition from the controlled `DISPOSITIONS` vocabulary
 (`claim site crucible banked slagged spoiled realized recorded passover`) and records the
 result in an appended `## Close` manifest, then sets the `closed:` frontmatter to the close

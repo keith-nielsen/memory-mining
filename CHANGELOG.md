@@ -12,6 +12,25 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 <!-- New entries are added here as changes land. -->
 
+---
+
+## [0.1.12] - 2026-06-29
+
+Runbook naming brought to the ≥3-token convention; the daily-close / provenance-seal vocabulary
+unified. Plus a moc→index residual sweep. (change: `runbook-naming-3token`; ADR-0017)
+
+### Changed
+- **Runbooks → ≥3-token `silo-section-descriptor`** (constitution-override, conforming amendment;
+  ADR-0017): `close-daily.md` → `daily-close-runbook.md`, `seal-provenance.md` →
+  `provenance-seal-runbook.md` (last grandfathered system-artifact family). The ritual vocabulary is
+  unified on one stem family per ritual: `close-daily` → `daily-close`, `seal-provenance` →
+  `provenance-seal` — coherent with the already-renamed `daily-close-script`. `session-bootstrap-loader`
+  unchanged (already conforms). Spec deltas: `maintenance` (Daily Close Lifecycle), `vault-structure`
+  (Folder Structure + Frontmatter Schemas). References repointed across AGENTS.md, CLAUDE.md, scripts,
+  and schema. No principle weakened; INV-11 reinforced.
+- **Upgrade (forks/vaults):** `git mv` the 2 runbook files + repoint references; no re-render
+  (runbooks have no deploy target).
+
 ### Fixed
 - **moc→index residual cleanup** — purged stale "MOC" wording left over from the `moc → index`
   rename (v0.1.6 / ADR-0013) in four non-protected vault-template files: `bank-execute-script`

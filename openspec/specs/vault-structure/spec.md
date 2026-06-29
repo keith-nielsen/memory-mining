@@ -77,7 +77,7 @@ Reserved number bands (folders NOT created until needed): 81–89 (Crucible-adja
 90–95 (future system).
 
 `96-Runbooks/` holds **runbooks** — literate, schema-validated procedure notes (spec-as-code)
-for repeatable, error-prone operations (e.g. `close-daily`, `seal-provenance`). It is
+for repeatable, error-prone operations (e.g. `daily-close-runbook`, `provenance-seal-runbook`). It is
 operational machinery (Layer-0-adjacent, like `97-Molds`/`99-Operations`), sorts in the
 infra region per CONST-04, and conforms to the numbering scheme — it does not override it.
 
@@ -137,7 +137,7 @@ in `vault-template/99-Operations/schemas/note-frontmatter-schema.md` and enforce
 | `runbook` | `96-Runbooks/*.md` | type, id, title, trigger, applies-to, class, last-validated |
 | `spoil` | `71-Spoil/<slug>/<slug>.md` | type, title, status (spent\|waste), grade, pillars, dumped |
 
-The `daily` `closed` field records that the day passed the `close-daily` ritual: it is
+The `daily` `closed` field records that the day passed the `daily-close` ritual: it is
 absent (legacy/open) or an ISO date (the day it was closed). The `runbook` schema is
 defined in `99-Operations/schemas/runbook-format-schema.md`.
 
