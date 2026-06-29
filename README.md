@@ -26,7 +26,7 @@ Copyright 2026 Keith Nielsen
 
 2. **An OpenSpec SDD showcase** — the repository is itself governed by
    [OpenSpec v1.4.1](openspec/project.md): a formal project spec, a constitution with
-   constitutional protection, 8 ADRs, 6 capability specs, and a live change-management
+   constitutional protection, 17 ADRs, 6 capability specs, and a live change-management
    workflow. It demonstrates what a principled, spec-driven personal-tools project
    looks like.
 
@@ -97,7 +97,7 @@ Render them in Obsidian or any Mermaid-capable viewer.
 ├── openspec/                    # OpenSpec SDD (spec-driven project governance)
 │   ├── project.md               #   purpose, invariants, standing goals
 │   ├── constitution.md          #   constitutional protection + Informed-Upheaval Protocol
-│   ├── adr/                     #   8 Architecture Decision Records (ADR-0001–0008)
+│   ├── adr/                     #   17 Architecture Decision Records (ADR-0001–0017)
 │   ├── specs/                   #   6 capability specs (vault-structure, value-pipeline, …)
 │   └── changes/                 #   change workflow: archive/, live/, templates/
 │
@@ -238,9 +238,9 @@ the spec framework (see [ADR-0001](openspec/adr/0001-openspec-as-framework.md)).
 |----------|---------|
 | [`openspec/project.md`](openspec/project.md) | Standing goals, 13 invariants, tech stack |
 | [`openspec/constitution.md`](openspec/constitution.md) | Constitutional protection, Informed-Upheaval Protocol |
-| [`openspec/adr/`](openspec/adr/) | 8 ADRs: framework choice → invariant ordering |
+| [`openspec/adr/`](openspec/adr/) | 17 ADRs: framework choice → runbook naming |
 | [`openspec/specs/`](openspec/specs/) | 6 capability specs with `protects:` tags |
-| [`openspec/changes/`](openspec/changes/) | 2 archived changes, 1 live (deferred), override template |
+| [`openspec/changes/`](openspec/changes/) | 12 archived changes, 1 live (deferred), override template |
 
 ---
 
