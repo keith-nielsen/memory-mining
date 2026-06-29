@@ -55,7 +55,7 @@ vault-root/
 ├── 71-Spoil/        ← terminal: spent husks + waste
 ├── 80-Crucible/     ← future: heavy-validation (deferred)
 ├── 97-Molds/        ← note templates
-├── 98-Warehouse/    ← binary attachments
+├── 98-Warehouse/    ← reference stockroom: reused source material, shelved (Books/Music/Art/Pictures/Audio)
 └── 99-Operations/   ← Layer 0: scripts, config, schemas (human-write-only)
 ```
 
