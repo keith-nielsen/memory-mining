@@ -95,10 +95,13 @@ Each is offline and deterministic (INV-6).
 | `kanban-render-script.md` | `~/bin/vault-kanban-render.py` | manual | Render read-only Markdown Kanban board |
 | `naming-rules-script.md` | `~/bin/vault_naming.py` | manual | Naming validator SSOT; also emits `naming-rules.json` |
 | `commit-gate-script.md` | `99-Operations/hooks/pre-commit` | git hook | Commit-gate: block non-conforming file names (INV-11) |
+| `push-guard-script.md` | `99-Operations/hooks/pre-push` | git hook | Push-gate: deny outbound push by default; permit only a remote in `PUSH_ALLOWLIST` (INV-14) |
 
 The **note filenames** follow the `silo-section-descriptor` naming convention (silo first, `script`
 trailing). **Deploy targets are unchanged** — the `~/bin/vault-*.py`/`.sh` and the
-`99-Operations/hooks/pre-commit` host artifacts keep their names (the `.py` rename is deferred).
+`99-Operations/hooks/pre-commit` / `pre-push` host artifacts keep their names (the `.py` rename is deferred).
+The `commit-gate` and `push-guard` hooks are deterministic (INV-6): they read git state and `config.env`
+only — no network, no LLM.
 
 #### Scenario: Daily note creator is idempotent
 - **WHEN** the daily-note creator runs twice on the same day
@@ -107,6 +110,10 @@ trailing). **Deploy targets are unchanged** — the `~/bin/vault-*.py`/`.sh` and
 #### Scenario: Kanban render produces a structured board
 - **WHEN** `vault-kanban-render.py` runs
 - **THEN** `10-Logbook/kanban.md` is written with three status-column headings in pipeline order (Dig/Ore/Slagged), rows sorted grade-descending within each column, and a read-only notice; one commit produced
+
+#### Scenario: Push-guard denies an un-allowlisted push
+- **WHEN** `git push` runs from a deployed vault and the target remote URL is not listed in `PUSH_ALLOWLIST`
+- **THEN** the `pre-push` hook aborts the push (non-zero) with an INV-14 message; a remote present in `PUSH_ALLOWLIST` is permitted
 
 ### Requirement: Runbook Format
 

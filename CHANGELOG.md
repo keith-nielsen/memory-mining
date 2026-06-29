@@ -14,6 +14,26 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
+## [0.1.13] - 2026-06-29
+
+Private by default — **INV-14** (Tier-0) + the outbound publish guard. (change: `private-by-default-publish-guard`; ADR-0018)
+
+### Added
+- **`INV-14` — private by default; no unbid publication** (Tier-0, Safety band; appended per ADR-0008, INV-1–13 unchanged). A deployed vault never publishes outward: no automated actor may push/mirror vault content except to an operator-allowlisted remote, and public publication requires deliberate human confirmation — never an agent's unprompted suggestion. Carried by the `access-control` spec; defined in `project.md`; listed Tier-0 in `constitution.md`.
+- **`push-guard-script`** → `99-Operations/hooks/pre-push`: deny-by-default, `PUSH_ALLOWLIST`-gated (deterministic, INV-6).
+- **Portable Claude Code `PreToolUse` guard** (`.claude/`, repo + vault-template): hard-denies vault-outward commands; loud ASK before any public repo creation / distribution-hub publish.
+- **`config.env`** keys `VAULT_PUBLISH_GUARD`, `PUSH_ALLOWLIST` (empty = deny all pushes).
+
+### Changed
+- Docs: README ("Private by default" + counts → 18 ADRs / 14 invariants), `AGENTS.md`, `docs/USING-THIS-TEMPLATE.md` (Step 4b).
+
+### Fixed
+- `config.env` comment `close-daily` → `daily-close` (v0.1.12 straggler; non-`.md`, missed by the earlier `.md`-scoped grep).
+
+**Honest limit (ADR-0018):** Tier-0 guarantees *safe-by-default + governed + loud-to-remove*, not a physical impossibility — git hooks don't clone, `--no-verify` bypasses, an owner can opt out. OS-level egress control is deferred.
+
+---
+
 ## [0.1.12] - 2026-06-29
 
 Runbook naming brought to the ≥3-token convention; the daily-close / provenance-seal vocabulary
