@@ -14,6 +14,25 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
+## [0.1.15] - 2026-07-02
+
+Publication boundary (path-level default-deny manifest) + special-file naming exemptions. (changes: `publication-boundary-manifest` — ADR-0020; `naming-special-file-exemptions` — ADR-0021)
+
+### Added
+- **Publication boundary — path-level default-deny manifest** (ADR-0020; extends ADR-0018/INV-14). `99-Operations/schemas/publish-manifest.json` is a default-deny allowlist of publishable framework paths; `push-guard-script` refuses a push to a `PUBLIC_REMOTE_ALLOWLIST` remote whose diff touches any non-allowlisted (private) path, path-by-path. Layers on the existing remote-level INV-14 gate; both allowlists empty by default. `access-control` (ADDED Requirement) + `maintenance` (MODIFIED Script Inventory) specs.
+- **Special-file naming exemptions** (ADR-0021; extends ADR-0015/INV-11). `naming-rules` gains `exempt_names` / `exempt_globs` (basename-matched) so tool-mandated / convention filenames (`README.md`, `CLAUDE.md`, dailies, `*.example`, …) are skipped by the kebab / ≥3-token rules; `is_exempt` is honored by the linter now (mechanical rejection still deferred per ADR-0015). `docs/naming-exemptions-rationale.md` documents each by dependency class.
+- **Framework/instance config split** — `99-Operations/config.defaults.env` (public defaults, sourced first) + `config.env.example` (stub); the live `config.env` is now a gitignored private instance. New `PUBLIC_REMOTE_ALLOWLIST` guard key.
+
+### Changed
+- `docs/obsidian.md` — prominent "turn OFF *Automatically update internal links*" warning (governed renames conflict with auto-relinking; INV-3).
+- `docs/USING-THIS-TEMPLATE.md` — config defaults/instance setup (`cp config.env.example config.env`) + `PUBLIC_REMOTE_ALLOWLIST` / publish-manifest.
+- `vault-template/` mirror of the push-guard path-gate, the two naming meta-scripts, `publish-manifest.json`, and the config split.
+
+### Fixed
+- Config-split blast radius: `.github/scripts/validate-scripts.sh` (sandbox now instantiates `config.env` from `config.env.example`) and `.github/workflows/ci.yml` `vocabulary-lint` (reads `config.defaults.env`) — both would otherwise break on the removed `config.env`.
+
+---
+
 ## [0.1.14] - 2026-06-30
 
 `98-Warehouse` re-chartered as the **reference stockroom**. (change: `warehouse-reference-stockroom`; ADR-0019)
